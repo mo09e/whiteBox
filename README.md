@@ -29,3 +29,10 @@
 - admin
 - simple_calendar
 - Ransack
+
+- **就業Termから少なくとも2つ**
+1. ラベル機能
+1. 一対一のメッセージ機能
+- **カリキュラム外から１つ以上**
+1. simple_calendar : カレンダー機能
+1. Ransack : 検索機能
