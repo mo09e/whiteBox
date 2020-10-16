@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :artists
   resources :homes, only: [:index, :show]
   root to: "homes#index"
 
