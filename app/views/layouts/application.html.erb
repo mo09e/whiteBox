@@ -10,6 +10,21 @@
   </head>
 
   <body>
+    <header>
+      <nav>
+        <% if user_signed_in? %>
+          Logged in as <strong><%= current_user.name %></strong>.
+          <%= link_to 'Edit Profile', edit_user_registration_path %> |
+          <%= link_to "Logout", sign_out_path %>
+        <% else %>
+          <%= link_to "SignIn", new_user_registration_path %> |
+          <%= link_to "Login", new_user_session_path %>
+        <% end %>
+      </nav>
+    </header>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>
