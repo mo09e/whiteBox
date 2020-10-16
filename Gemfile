@@ -13,6 +13,9 @@ gem 'uglifier', '>= 1.3.0'
 
 gem 'devise'
 
+gem 'mini_magick', '~> 4.8'
+gem 'carrierwave'
+
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
