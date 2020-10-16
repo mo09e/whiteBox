@@ -1,2 +1,19 @@
-<h1>Artists#show</h1>
-<p>Find me in app/views/artists/show.html.erb</p>
+<h1>Artists　Information</h1>
+<%= image_tag @artist.user.avatar.url, resize: "80x80" %>
+<p><strong>ArtistName:</strong><%= @artist.name %></p>
+<% if current_user.id == @artist.user_id %>
+  <p><strong>Name</strong><%= @artist.user.name %></p>
+  <p><strong>Email:</strong><%= @artist.user.email %></p>
+  <p><strong>phone_number:</strong><%= @artist.phone_number %></p>
+<% end %>
+<p><strong>Web:</strong><%= @artist.url %></p>
+<p><strong>Note:</strong><%= @artist.note %></p>
+<p><strong>image:</strong></p>
+  <% @artist.images.each do |image| %>
+    <% if @artist.images? %>
+      <%= image_tag image.url, size: "100x100" %>
+    <% else %>
+      <%= image_tag("/assets/default.png", size: "100x100") %>
+    <% end %>
+  <% end %>
+<%= link_to 'edit', edit_artist_path(@artist) %>
