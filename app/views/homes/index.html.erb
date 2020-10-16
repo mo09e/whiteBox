@@ -1,0 +1,26 @@
+<h4>White Box</h4>
+<h6>User List</h6>
+<br>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th class="t_head">user_id</th>
+      <th class="t_head">Name</th>
+      <th class="t_head">Email</th>
+      <th class="t_head">Avatar</th>
+      <th class="t_head">Gallary owner</th>
+      <th colspan="3" class="t_head"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.id %></td>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+      <td><%= image_tag user.avatar.url, size: "80x80" %></td>
+      <td><%= user.gallery_owner %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
