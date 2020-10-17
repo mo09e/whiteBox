@@ -42,7 +42,7 @@ class ArtistsController < ApplicationController
   end
 
   def artist_params
-    params.require(:artist).permit(:name, :note, :phone_number, { images: []}, :url)
+    params.require(:artist).permit(:name, :note, :phone_number, { images: []}, :url, :images_cache)
                                    .merge(user_id: current_user.id)
   end
 

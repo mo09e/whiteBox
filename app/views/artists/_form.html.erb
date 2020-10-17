@@ -32,6 +32,7 @@
       <%= image_tag image.url, size: "100x100" %>
     <% end %>
     <%= form.file_field :images, multiple: true %>
+    <%= form.hidden_field :images_cache %>
   </div>
   <div class="form-group">
     <%= form.submit "create" %>

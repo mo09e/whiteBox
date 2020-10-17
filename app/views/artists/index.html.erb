@@ -16,11 +16,7 @@
       <td><%= link_to "#{artist.name}", artist_path(artist) %></td>
       <td>
         <% artist.images.each do |image| %>
-          <% if artist.images? %>
-            <%= image_tag image.url, size: "100x100" %>
-          <% else %>
-            <%= image_tag("/assets/default.png", size: "100x100") %>
-          <% end %>
+          <%= image_tag image.url, size: "100x100" %>
         <% end %>
       </td>
       </tr>
