@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address: 
+  rental_fee: 1
+  lending_period: 1
+  url: MyString
+  layout: 
+  note: MyText
+  user: one
+
+two:
+  name: MyString
+  address: 
+  rental_fee: 1
+  lending_period: 1
+  url: MyString
+  layout: 
+  note: MyText
+  user: two

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  get 'galleries/index'
+  get 'galleries/new'
+  get 'galleries/show'
+  get 'galleries/edit'
+  get 'galleries/_form'
   resources :artists
   resources :homes, only: [:index, :show]
   root to: "homes#index"
