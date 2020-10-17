@@ -1,0 +1,8 @@
+ja:
+  enums:
+    gallery:
+      rental_fee:
+        within10000yen: １万円以内
+        as10000to30000yen: 3万円から3万円
+        as30000to50000yen: 3万円から5万円
+        over50000yen: 5万円以上

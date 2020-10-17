@@ -5,4 +5,8 @@
 <%= @user.email %>
 <br>
 <p>お次に情報をご登録ください</p>
-<%= link_to '作家情報を登録する', new_artist_path %>
+<% if @user.gallery_owner == true %>
+ <%= link_to 'ギャラリー情報を登録する', new_gallery_path %>
+<% else %>
+ <%= link_to '作家情報を登録する', new_artist_path %>
+<% end %>
