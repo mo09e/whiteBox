@@ -1,2 +1,58 @@
-<h1>Galleries#_form</h1>
-<p>Find me in app/views/galleries/_form.html.erb</p>
+<%= form_with(model: @gallery, local: true) do |form| %>
+  <% if @gallery.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @gallery.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @gallery.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= form.label :name, "作家名" %>
+    <%= form.text_field :name %>
+  </div>
+  <div class="form-group">
+    <%= form.label :phone_number %>
+    <%= form.text_field :phone_number %>
+  </div>
+  <div class="form-group">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+  <div class="form-group">
+    <%= form.label :url %>
+    <%= form.text_field :url %>
+  </div>
+  <div class="form-group">
+    <p><%= form.label :rental_fee, '利用料金' %></p>
+    <p><%= form.select :rental_fee,["~1万","1~3万","3万〜5万","5万以上"], class: "status" %></p>
+  </div>
+  <div class="form-group">
+    <p><%= form.label :lending_period, '貸し出し期間' %></p>
+    <p><%= form.select :lending_period,["1日","3日間","5日間","7日間"], class: "status" %></p>
+  </div>
+  <div class="form-group">
+    <%= form.label :note %>
+    <%= form.text_field :note %>
+  </div>
+  <div class="form-group">
+    <%= form.label :layout, '間取り図' %>
+    <%= form.file_field :layout %>
+    <%= image_tag(@gallery.post_image.url)if @gallery.post_image && @gallery.post_image.url, size: "100x100" %>
+    <%= form.hidden_field :layout_image_cache %>
+  </div>
+  <div class="form-group">
+    <%= form.label :images %>
+    <% @gallery.images.each do |image| %>
+      <%= hidden_field :gallery, :images, multiple: true, value: image.identifier %>
+      <%= image_tag image.url, size: "100x100" %>
+    <% end %>
+    <%= form.file_field :images, multiple: true %>
+    <%= form.hidden_field :images_cache %>
+  </div>
+  <div class="form-group">
+    <%= form.submit "create" %>
+  </div>
+<% end %>
