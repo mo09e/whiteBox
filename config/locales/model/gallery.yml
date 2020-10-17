@@ -3,6 +3,12 @@ ja:
     gallery:
       rental_fee:
         within10000yen: １万円以内
-        as10000to30000yen: 3万円から3万円
-        as30000to50000yen: 3万円から5万円
+        case10000to30000yen: 3万円から3万円
+        case30000to50000yen: 3万円から5万円
         over50000yen: 5万円以上
+      lending_period:
+        one_day: 1日
+        every_three_days: 3日間
+        every_five_days: 5日間
+        every_seven_days: 7日間
+        etc: その他

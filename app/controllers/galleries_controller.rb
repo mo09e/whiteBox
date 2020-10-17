@@ -7,6 +7,10 @@ class GalleriesController < ApplicationController
   end
 
   def new
+    if current_user.gallery_owner != true
+      redirect_to artists_path,
+      notice: "あなたは作家なのでギャラリー情報は登録できません"
+    end
     if params[:back]
       @gallery = Gallery.new(gallery_params)
     else
@@ -20,7 +24,7 @@ class GalleriesController < ApplicationController
       render :new
     else
       if @gallery.save
-        redirect_to gallerys_path, notice: "ギャラリー情報を登録しました"
+        redirect_to galleries_path, notice: "ギャラリー情報を登録しました"
       else
         render :new
       end
@@ -43,7 +47,7 @@ class GalleriesController < ApplicationController
 
   def gallery_params
     params.require(:gallery).permit(:name, :note, :phone_number, :url, :address, :rental_fee, :lending_period,
-                                    { images: []}, :images_cache, :layout, :layout_image_cache)
+                                    { images: []}, :images_cache, :layout, :layout_cache)
                                    .merge(user_id: current_user.id)
   end
 

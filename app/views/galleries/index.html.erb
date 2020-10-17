@@ -10,7 +10,7 @@
     </tr>
   </thead>
   <tbody>
-    <% @gallerys.each do |gallery| %>
+    <% @galleries.each do |gallery| %>
     <tr>
       <td><%= image_tag gallery.user.avatar.url, size: "100x100" %></td>
       <td><%= link_to "#{gallery.name}", gallery_path(gallery) %></td>

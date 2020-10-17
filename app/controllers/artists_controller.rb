@@ -1,5 +1,5 @@
 class ArtistsController < ApplicationController
-  before_action :set_artist, only: [:show, :edit, :update, :destroy]
+  before_action :set_artist, only: [:show, :edit, :update, :destroy, :new]
   before_action :current_user, only: [:edit, :destroy, :update, :new]
 
   def index
@@ -7,6 +7,10 @@ class ArtistsController < ApplicationController
   end
 
   def new
+    if current_user.gallery_owner == true
+      redirect_to galleries_path,
+      notice: "あなたはギャラリー所有者なので作家情報は登録できません"
+    end
     if params[:back]
       @artist = Artist.new(artist_params)
     else

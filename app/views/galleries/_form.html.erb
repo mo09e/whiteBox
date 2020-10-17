@@ -27,12 +27,11 @@
   </div>
   <div class="form-group">
     <p><%= form.label :rental_fee, '利用料金' %></p>
-    <p><%#= form.select :rental_fee,["~1万","1~3万","3万〜5万","5万以上], class: "status" %></p>
     <p><%= form.select :rental_fee, Gallery.rental_fees_i18n.invert %></p>
   </div>
   <div class="form-group">
     <p><%= form.label :lending_period, '貸し出し期間' %></p>
-    <p><%= form.select :lending_period,["1日","3日間","5日間","7日間","その他"], class: "status" %></p>
+    <p><%= form.select :lending_period, Gallery.lending_periods_i18n.invert %></p>
   </div>
   <div class="form-group">
     <%= form.label :note %>
@@ -41,7 +40,8 @@
   <div class="form-group">
     <%= form.label :layout, '間取り図' %>
     <%= form.file_field :layout %>
-    <%= form.hidden_field :layout_image_cache %>
+    <%= image_tag @gallery.layout.url, size: "100x100" %>
+    <%= form.hidden_field :layout_cache %>
   </div>
   <div class="form-group">
     <%= form.label :images %>

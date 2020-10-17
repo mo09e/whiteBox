@@ -6,4 +6,5 @@ class User < ApplicationRecord
   mount_uploader :avatar, AvatarUploader
 
   has_one :artist
+  has_one :gallery
 end
