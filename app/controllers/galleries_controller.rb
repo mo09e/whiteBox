@@ -32,6 +32,8 @@ class GalleriesController < ApplicationController
   end
 
   def show
+    @reservation = @gallery.reservations.all
+    @user = User.find(params[:id])
   end
 
   def edit

@@ -1,4 +1,5 @@
 class Gallery < ApplicationRecord
+  has_many :reservations, dependent: :destroy
   has_many :labeling, dependent: :destroy
   has_many :label, through: :labeling, dependent: :destroy
   belongs_to :user, dependent: :destroy

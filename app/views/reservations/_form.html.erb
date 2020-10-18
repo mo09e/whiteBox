@@ -1,0 +1,32 @@
+<%= form_with(model:[@gallery, @reservation], local: true) do |form| %>
+  <% if @reservation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @reservation.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @reservation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="time">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="time">
+    <%= form.label :start_time %>
+    <%= form.date_select :start_time %>
+  </div>
+
+  <div class="content">
+    <%= form.label :end_time %>
+    <%= form.date_select:end_time %>
+  </div>
+
+
+  <div class="submit">
+    <%= form.submit %>
+  </div>
+
+<% end %>

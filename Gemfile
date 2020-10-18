@@ -18,6 +18,8 @@ gem 'devise-i18n-views'
 gem 'rails-i18n'
 gem 'enum_help'
 
+gem "simple_calendar", "~> 2.0"
+
 gem 'mini_magick', '~> 4.8'
 gem 'carrierwave'
 
