@@ -1,0 +1,25 @@
+<h2>Gallery List</h2>
+<br>
+<table class="task_row" id="main_table">
+  <thead>
+    <tr>
+      <th class="t_head">avatar</th>
+      <th class="t_head">name</th>
+      <th class="t_head">image</th>
+      <th colspan="3" class="t_head"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @galleries.each do |gallery| %>
+    <tr>
+      <td><%= image_tag gallery.user.avatar.url, size: "100x100" %></td>
+      <td><%= link_to "#{gallery.name}", gallery_path(gallery) %></td>
+      <td>
+        <% gallery.images.each do |image| %>
+          <%= image_tag image.url, size: "100x100" %>
+        <% end %>
+      </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>

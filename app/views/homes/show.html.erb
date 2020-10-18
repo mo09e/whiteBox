@@ -1,0 +1,12 @@
+<h2>Thank you for signing up!</h2>
+<br>
+<%= image_tag @user.avatar.url, size: "80x80" %>
+<%= @user.name %>
+<%= @user.email %>
+<br>
+<p>お次に情報をご登録ください</p>
+<% if @user.gallery_owner == true %>
+ <%= link_to 'ギャラリー情報を登録する', new_gallery_path %>
+<% else %>
+ <%= link_to '作家情報を登録する', new_artist_path %>
+<% end %>

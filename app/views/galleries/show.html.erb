@@ -1,0 +1,26 @@
+<h1>Artists　Information</h1>
+<%= image_tag @gallery.user.avatar.url, resize: "80x80" %>
+<p><strong>ArtistName:</strong><%= @gallery.name %></p>
+<p><strong>Name</strong><%= @gallery.user.name %></p>
+<p><strong>Email:</strong><%= @gallery.user.email %></p>
+<p><strong>address:</strong><%= @gallery.address %></p>
+<p><strong>phone_number:</strong><%= @gallery.phone_number %></p>
+<p><strong>rental_fee:</strong><%= @gallery.rental_fee_i18n %></p>
+<p><strong>lending_period:</strong><%= @gallery.lending_period_i18n %></p>
+<p><strong>Web:</strong><%= link_to "#{@gallery.url}", @gallery.url %></p>
+<p><strong>Note:</strong><%= @gallery.note %></p>
+<p><strong>Layout:</strong></p>
+<div class="layout_i">
+  <% if @gallery.layout.present? %>
+  <p><%= image_tag @gallery.layout.url %></p>
+  <% else %>
+  <p><%= image_tag("/assets/default.png", size: "300x300") %></p>
+  <% end %>
+</div>
+<p><strong>image:</strong></p>
+  <% @gallery.images.each do |image| %>
+    <%= image_tag image.url, size: "100x100" %>
+  <% end %>
+  <% if @gallery.user_id == current_user.id %>
+    <%= link_to 'Edit', edit_gallery_path(@gallery) %>
+  <% end %>
