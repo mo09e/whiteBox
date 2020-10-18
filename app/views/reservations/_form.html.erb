@@ -1,5 +1,14 @@
 <%= form_with(model:[@gallery, @reservation], local: true) do |form| %>
-
+  <% if @reservation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @reservation.errors.count %>件のエラーがあります。</h2>
+      <ul>
+      <% @reservation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
   <div class="time">
     <%= form.label :title %>
     <%= form.text_field :title %>

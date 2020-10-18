@@ -2,6 +2,9 @@ class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
   before_action :set_applicable_gallies, only: [:new, :show, :create, :edit]
 
+  def index
+  end
+
   def new
     @reservation = @gallery.reservations.new
   end
