@@ -1,2 +1,11 @@
-<h1>Reservations#show</h1>
-<p>Find me in app/views/reservations/show.html.erb</p>
+<h1>Reservation</h1>
+<p><%= @reservation.title %></p>
+<p><%= @reservation.start_time %></p>
+<p><%= @reservation.end_time %></p>
+<p><%= @reservation.artist.name %></p>
+<p><%= @reservation.gallery.name %></p>
+
+<% if @gallery.id == @reservation.gallery_id && @gallery.user_id == current_user.id %>
+<%= link_to 'Edit', edit_gallery_reservation_path(@reservation) %> |
+<% end %>
+<%= link_to "back", gallery_path(@gallery) %>

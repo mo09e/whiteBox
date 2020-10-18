@@ -1,4 +1,8 @@
-<h1>Artists　Information</h1>
+<h1>Galleries　Information</h1>
+<% if @gallery.user_id == current_user.id %>
+  <%= link_to 'Edit', edit_gallery_path(@gallery) %>
+<% end %>
+
 <%= image_tag @gallery.user.avatar.url, resize: "80x80" %>
 <p><strong>ArtistName:</strong><%= @gallery.name %></p>
 <p><strong>Name</strong><%= @gallery.user.name %></p>
@@ -25,6 +29,23 @@
   <% @gallery.images.each do |image| %>
     <%= image_tag image.url, size: "100x100" %>
   <% end %>
-  <% if @gallery.user_id == current_user.id %>
-    <%= link_to 'Edit', edit_gallery_path(@gallery) %>
+<br>
+<br>
+
+<%= month_calendar events: @reservation do |date, reservations| %>
+  <%= date.day %>
+  <% reservations.each do |reservation| %>
+    <div>
+      <%= link_to reservation.title, gallery_reservation_path(@gallery,reservation) %>
+      <% if @gallery.id == reservation.gallery_id && @gallery.user_id == current_user.id %>
+        <%= link_to 'Edit', edit_gallery_reservation_path(@gallery,reservation) %>
+        <%= link_to 'Destroy', gallery_reservation_path(@gallery,reservation), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+      <% end %>
+    </div>
   <% end %>
+<% end %>
+<% if current_user.gallery_owner != true %>
+  <%= link_to '予約する', new_gallery_reservation_path(@gallery) %>
+<% end %>
+<br>
+<br>
