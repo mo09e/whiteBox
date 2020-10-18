@@ -6,5 +6,6 @@ class HomesController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    # check_if_you_are_already_registered
   end
 end

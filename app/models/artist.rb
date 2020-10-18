@@ -9,12 +9,7 @@ class Artist < ApplicationRecord
   validates :url, format: { with: /\A#{URI::regexp(%w(http https))}\z/, message: "このURLでは無効です。" },
                   allow_blank: true
   validates :note, presence: true, length: { maximum: 800 }
-  validate :check_image, :check_image_limit
-  def check_image
-    if images.count == 0
-      errors.add(:images, "作品画像は最低１枚登録してください。")
-    end
-  end
+  validate :check_image_limit
 
   def check_image_limit
     if images.count > 5
