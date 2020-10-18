@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_17_060606) do
+ActiveRecord::Schema.define(version: 2020_10_18_033552) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,21 @@ ActiveRecord::Schema.define(version: 2020_10_17_060606) do
     t.index ["user_id"], name: "index_galleries_on_user_id"
   end
 
+  create_table "labelings", force: :cascade do |t|
+    t.bigint "gallery_id"
+    t.bigint "label_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["gallery_id"], name: "index_labelings_on_gallery_id"
+    t.index ["label_id"], name: "index_labelings_on_label_id"
+  end
+
+  create_table "labels", force: :cascade do |t|
+    t.string "name", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -66,4 +81,6 @@ ActiveRecord::Schema.define(version: 2020_10_17_060606) do
 
   add_foreign_key "artists", "users"
   add_foreign_key "galleries", "users"
+  add_foreign_key "labelings", "galleries"
+  add_foreign_key "labelings", "labels"
 end

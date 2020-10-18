@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   mount_uploader :avatar, AvatarUploader
 
-  has_one :artist
-  has_one :gallery
+  has_one :artist, dependent: :destroy
+  has_one :gallery, dependent: :destroy
 end

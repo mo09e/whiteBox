@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'labels/new'
   resources :galleries
   resources :artists
   resources :homes, only: [:index, :show]

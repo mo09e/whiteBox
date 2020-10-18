@@ -8,6 +8,10 @@
 <p><strong>rental_fee:</strong><%= @gallery.rental_fee_i18n %></p>
 <p><strong>lending_period:</strong><%= @gallery.lending_period_i18n %></p>
 <p><strong>Web:</strong><%= link_to "#{@gallery.url}", @gallery.url %></p>
+<p><strong>location:</strong>
+<% @gallery.label.each do |label| %>
+  <p  class="label label-info"><%= label.name %></p>
+<% end %>
 <p><strong>Note:</strong><%= @gallery.note %></p>
 <p><strong>Layout:</strong></p>
 <div class="layout_i">
