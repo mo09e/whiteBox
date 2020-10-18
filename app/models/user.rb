@@ -7,4 +7,7 @@ class User < ApplicationRecord
 
   has_one :artist, dependent: :destroy
   has_one :gallery, dependent: :destroy
+  has_many :messages, dependent: :destroy
+  has_many :entries, dependent: :destroy
+  has_many :rooms, through: :entries
 end
