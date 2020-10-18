@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-  def index
-  end
-
-  def show
-  end
+  before_action :authenticate_user!, only: [:show]
+   def show
+     message_exchange
+   end
 end

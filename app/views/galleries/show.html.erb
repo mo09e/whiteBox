@@ -2,7 +2,22 @@
 <% if @gallery.user_id == current_user.id %>
   <%= link_to 'Edit', edit_gallery_path(@gallery) %>
 <% end %>
-
+<br>
+<% if @gallery.user_id == current_user.id %>
+  <%= link_to 'DM一覧を見る', rooms_path(id: @gallery.user_id) %>
+<% else %>
+  <% if @is_room == true %>
+    <%= link_to "DMを送る", room_path(@room_id) %>
+    <% else %>
+      <%= form_for @room do |f| %>
+        <%= fields_for @entry do |e| %>
+          <%= e.hidden_field :user_id, value: @user.id %>
+        <% end %>
+        <%= f.submit "DMを送る" %>
+      <% end %>
+    <% end %>
+<% end %>
+<br>
 <%= image_tag @gallery.user.avatar.url, resize: "80x80" %>
 <p><strong>ArtistName:</strong><%= @gallery.name %></p>
 <p><strong>Name</strong><%= @gallery.user.name %></p>

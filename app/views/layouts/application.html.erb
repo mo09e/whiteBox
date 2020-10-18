@@ -15,6 +15,8 @@
         <% if user_signed_in? %>
           Logged in as <strong><%= current_user.name %></strong>.
           <%= link_to 'Edit Profile', edit_user_registration_path %> |
+          <%= link_to "Gallery", galleries_path %> |
+          <%= link_to "Artist", artists_path %> |
           <%= link_to "Logout", sign_out_path %>
         <% else %>
           <%= link_to "SignIn", new_user_registration_path %> |
