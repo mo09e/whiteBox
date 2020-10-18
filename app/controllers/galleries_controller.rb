@@ -47,7 +47,7 @@ class GalleriesController < ApplicationController
 
   def gallery_params
     params.require(:gallery).permit(:name, :note, :phone_number, :url, :address, :rental_fee, :lending_period,
-                                    { images: []}, :images_cache, :layout, :layout_cache)
+                                    { images: []}, :images_cache, :layout, :layout_cache, { label_ids: [] })
                                    .merge(user_id: current_user.id)
   end
 

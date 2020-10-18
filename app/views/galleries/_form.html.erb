@@ -22,16 +22,20 @@
     <%= form.text_field :address %>
   </div>
   <div class="form-group">
+    <%= form.label :label, "地区" %>
+    <%= form.select("label_id", Label.pluck(:name), { include_blank: true }) %>
+  </div>
+  <div class="form-group">
     <%= form.label :url %>
     <%= form.text_field :url %>
   </div>
   <div class="form-group">
-    <p><%= form.label :rental_fee, '利用料金' %></p>
-    <p><%= form.select :rental_fee, Gallery.rental_fees_i18n.invert %></p>
+    <%= form.label :rental_fee, '利用料金' %>
+    <%= form.select :rental_fee, Gallery.rental_fees_i18n.invert %>
   </div>
   <div class="form-group">
-    <p><%= form.label :lending_period, '貸し出し期間' %></p>
-    <p><%= form.select :lending_period, Gallery.lending_periods_i18n.invert %></p>
+    <%= form.label :lending_period, '貸し出し期間' %>
+    <%= form.select :lending_period, Gallery.lending_periods_i18n.invert %>
   </div>
   <div class="form-group">
     <%= form.label :note %>
@@ -40,7 +44,9 @@
   <div class="form-group">
     <%= form.label :layout, '間取り図' %>
     <%= form.file_field :layout %>
-    <%= image_tag @gallery.layout.url, size: "100x100" %>
+    <% if action_name == "edit" %>
+      <%= image_tag @gallery.layout.url, size: "100x100" %>
+    <% end %>
     <%= form.hidden_field :layout_cache %>
   </div>
   <div class="form-group">
