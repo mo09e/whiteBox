@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_18_033552) do
+ActiveRecord::Schema.define(version: 2020_10_18_043948) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,18 @@ ActiveRecord::Schema.define(version: 2020_10_18_033552) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reservations", force: :cascade do |t|
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string "title", null: false
+    t.bigint "artist_id"
+    t.bigint "gallery_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_reservations_on_artist_id"
+    t.index ["gallery_id"], name: "index_reservations_on_gallery_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -83,4 +95,6 @@ ActiveRecord::Schema.define(version: 2020_10_18_033552) do
   add_foreign_key "galleries", "users"
   add_foreign_key "labelings", "galleries"
   add_foreign_key "labelings", "labels"
+  add_foreign_key "reservations", "artists"
+  add_foreign_key "reservations", "galleries"
 end

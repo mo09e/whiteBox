@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_time: 2020-10-18 13:39:48
+  end_time: 2020-10-18 13:39:48
+  title: MyString
+  artist: one
+  gallery: one
+
+two:
+  start_time: 2020-10-18 13:39:48
+  end_time: 2020-10-18 13:39:48
+  title: MyString
+  artist: two
+  gallery: two

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get 'labels/new'
-  resources :galleries
+  resources :galleries do
+    resources :reservations
+  end
   resources :artists
   resources :homes, only: [:index, :show]
   root to: "homes#index"
