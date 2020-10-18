@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   end
   resources :artists
   resources :homes, only: [:index, :show]
+  # resources :users, only: [:show]
+  resources :messages, only: [:create]
+  resources :rooms, only: [:create, :show, :index]
   root to: "homes#index"
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?

@@ -34,6 +34,7 @@ class GalleriesController < ApplicationController
   def show
     @reservation = @gallery.reservations.all
     @user = User.find(params[:id])
+    message_exchange
   end
 
   def edit

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_18_043948) do
+ActiveRecord::Schema.define(version: 2020_10_18_055904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(version: 2020_10_18_043948) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_artists_on_user_id"
+  end
+
+  create_table "entries", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_entries_on_room_id"
+    t.index ["user_id"], name: "index_entries_on_user_id"
   end
 
   create_table "galleries", force: :cascade do |t|
@@ -58,6 +67,16 @@ ActiveRecord::Schema.define(version: 2020_10_18_043948) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "messages", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "room_id"
+    t.text "content", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["room_id"], name: "index_messages_on_room_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
   create_table "reservations", force: :cascade do |t|
     t.datetime "start_time"
     t.datetime "end_time"
@@ -68,6 +87,12 @@ ActiveRecord::Schema.define(version: 2020_10_18_043948) do
     t.datetime "updated_at", null: false
     t.index ["artist_id"], name: "index_reservations_on_artist_id"
     t.index ["gallery_id"], name: "index_reservations_on_gallery_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -92,9 +117,13 @@ ActiveRecord::Schema.define(version: 2020_10_18_043948) do
   end
 
   add_foreign_key "artists", "users"
+  add_foreign_key "entries", "rooms"
+  add_foreign_key "entries", "users"
   add_foreign_key "galleries", "users"
   add_foreign_key "labelings", "galleries"
   add_foreign_key "labelings", "labels"
+  add_foreign_key "messages", "rooms"
+  add_foreign_key "messages", "users"
   add_foreign_key "reservations", "artists"
   add_foreign_key "reservations", "galleries"
 end

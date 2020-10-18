@@ -32,6 +32,7 @@ class ArtistsController < ApplicationController
   end
 
   def show
+    message_exchange
   end
 
   def edit

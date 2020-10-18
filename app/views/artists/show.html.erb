@@ -1,5 +1,5 @@
 <h1>Artists　Information</h1>
-<%= image_tag @artist.user.avatar.url, resize: "80x80" %>
+<%= image_tag @artist.user.avatar.url, size: "80x80" %>
 <p><strong>ArtistName:</strong><%= @artist.name %></p>
 <% if current_user.id == @artist.user_id %>
   <p><strong>Name</strong><%= @artist.user.name %></p>
@@ -12,4 +12,20 @@
   <% @artist.images.each do |image| %>
     <%= image_tag image.url, size: "100x100" %>
   <% end %>
+<br>
+<% if @artist.user_id == current_user.id %>
+  <%= link_to 'DM一覧を見る', rooms_path(id: @artist.user_id) %>
+<% else %>
+  <% if @is_room == true %>
+    <%= link_to "DMを送る", room_path(@room_id) %>
+    <% else %>
+      <%= form_for @room do |f| %>
+        <%= fields_for @entry do |e| %>
+          <%= e.hidden_field :user_id, value: @user.id %>
+        <% end %>
+        <%= f.submit "DMを送る" %>
+      <% end %>
+    <% end %>
+<% end %>
+<br>
 <%= link_to 'edit', edit_artist_path(@artist) %>
