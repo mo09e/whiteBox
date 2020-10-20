@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   resources :rooms, only: [:create, :show, :index]
   root to: "homes#index"
 
+
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end

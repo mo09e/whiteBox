@@ -4,6 +4,8 @@ class Artist < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :favorite_users, through: :favorites, source: :user
   mount_uploaders :images, ArtistImageUploader
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_users, through: :favorites, source: :user
 
   validates :name, presence: true, length: { maximum: 50 }
   validates :phone_number,

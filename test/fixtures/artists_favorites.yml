@@ -3,9 +3,7 @@
 one:
   user_id: 1
   artist_id: 1
-  gallery_id: 1
 
 two:
   user_id: 1
   artist_id: 1
-  gallery_id: 1
