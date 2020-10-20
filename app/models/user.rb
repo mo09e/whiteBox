@@ -10,4 +10,5 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
   has_many :rooms, through: :entries
+  has_many :favorite_artists_galleries, through: :favorites, source: :artist, :gallery
 end

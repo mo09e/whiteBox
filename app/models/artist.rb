@@ -1,6 +1,8 @@
 class Artist < ApplicationRecord
   belongs_to :user, dependent: :destroy
   has_many :reservations, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_users, through: :favorites, source: :user
   mount_uploaders :images, ArtistImageUploader
 
   validates :name, presence: true, length: { maximum: 50 }

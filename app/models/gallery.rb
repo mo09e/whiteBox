@@ -2,6 +2,8 @@ class Gallery < ApplicationRecord
   has_many :reservations, dependent: :destroy
   has_many :labeling, dependent: :destroy
   has_many :label, through: :labeling, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :favorite_users, through: :favorites, source: :user
   belongs_to :user, dependent: :destroy
   enum rental_fee: { within10000yen: 0, case10000to30000yen: 1, case30000to50000yen: 2, over50000yen: 3 }
   enum lending_period: { one_day: 0, every_three_days: 1, every_five_days: 2, every_seven_days: 3, etc: 4 }
