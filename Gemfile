@@ -14,6 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'rails_admin', '~> 2.0'
 
 gem 'rails-i18n'
 gem 'enum_help'
