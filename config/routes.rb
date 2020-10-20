@@ -19,8 +19,8 @@ Rails.application.routes.draw do
   resources :messages, only: [:create]
   resources :rooms, only: [:create, :show, :index]
   resources :artists_favorites, only: [:create, :destroy]
+  resources :galleries_favorites, only: [:create, :destroy]
   root to: "homes#index"
-
 
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end

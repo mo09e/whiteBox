@@ -34,8 +34,8 @@ class GalleriesController < ApplicationController
 
   def show
     @reservation = @gallery.reservations.all
-    @user = User.find(params[:id])
     message_exchange
+    @favorite = current_user.galleries_favorites.find_by(gallery_id: @gallery.id)
   end
 
   def edit
