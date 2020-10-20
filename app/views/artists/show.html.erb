@@ -18,14 +18,14 @@
 <% else %>
   <% if @is_room == true %>
     <%= link_to "DMを送る", room_path(@room_id) %>
-    <% else %>
-      <%= form_for @room do |f| %>
-        <%= f.fields_for @entry do |e| %>
-          <%= e.hidden_field :user_id, value: @user.id %>
-        <% end %>
-        <%= f.submit "DMを送る" %>
+  <% else %>
+    <%= form_for @room do |f| %>
+      <%= fields_for @entry do |e| %>
+        <%= e.hidden_field :user_id, value: @user.id %>
       <% end %>
+      <%= f.submit "DMを送る" %>
     <% end %>
+  <% end %>
 <% end %>
 <% unless @artist.user_id == current_user.id %>
   <% if @favorite.present? %>

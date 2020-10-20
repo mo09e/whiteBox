@@ -33,6 +33,6 @@ User.create!(name: "AdminUser",
              email: "admin@example.com",
              password: 'pass0123',
              password_confirmation: 'pass0123',
-             gallery_owner: 'false',
+             gallery_owner: false,
              admin: true
              )
