@@ -1,7 +1,7 @@
 <h2>Gallery List</h2>
 <br>
 <%= search_form_for @search do |f| %>
-  <%= f.label :name, "Keyword", class:'search', placeholder: 'ギャラリー名' %>
+  <%= f.label :name, "Gallery Name", class:'search', placeholder: 'ギャラリー名' %>
   <%= f.search_field :name_cont %>
   <%= f.submit "検索" %>
   <%= link_to '検索条件クリア', galleries_path %>

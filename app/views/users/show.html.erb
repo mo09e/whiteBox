@@ -1,6 +1,6 @@
 <h2>Mypage</h2>
-<% if current_user.gallery_owner == true %>
-  <%= link_to '詳細ページへ', gallery_path(@gallery) %>
-<% else %>
-  <%= link_to '詳細ページへ', artist_path(@artist) %>
+<% if current_user.gallery_owner == true && current_user.gallery.id.present? %>
+  <%= link_to '詳細ページへ', gallery_path(current_user.gallery.id) %>
+<% elsif current_user.gallery_owner == false && current_user.artist.id.present? %>
+  <%= link_to '詳細ページへ', artist_path(current_user.artist.id) %>
 <% end %>
