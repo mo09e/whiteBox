@@ -29,12 +29,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # def check_if_you_are_already_registered
-  #   @artist = Artist.find(params[:id])
-  #   @gallery = Gallery.find(params[:id])
-  #   if @artist.present? || @gallery.present?
-  #     redirect_to root_path,
-  #     notice: "既に情報を登録済みです。情報の変更は編集から行ってください。"
+  # def after_sign_in_path_for(resource)
+  #   if current_user.gallery_owner == true
+  #     artists_path
+  #   else
+  #     galleries_path
   #   end
   # end
 end
