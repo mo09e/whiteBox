@@ -1,0 +1,2 @@
+class GalleriesFavorite < ApplicationRecord
+end
