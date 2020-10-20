@@ -35,4 +35,6 @@
   <% end %>
 <% end %>
 <br>
+<%= link_to "favorites", "/users/#{@artist.user_id}/favorites", class: 'btn btn-danger' %>
+<br>
 <%= link_to 'edit', edit_artist_path(@artist) %>

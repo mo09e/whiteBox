@@ -19,13 +19,13 @@
 <% end %>
 <br>
 <% unless @gallery.user_id == current_user.id %>
-<%# binding.pry %>
   <% if @favorite.present? %>
     <%= link_to 'お気に入り解除する', galleries_favorite_path(id: @favorite.id), method: :delete %>
   <% else %>
     <%= link_to 'お気に入りする', galleries_favorites_path(gallery_id: @gallery.id), method: :post %>
   <% end %>
 <% end %>
+<%= link_to "favorites", "/users/#{@gallery.user_id}/favorites", class: 'btn btn-danger' %>
 <br>
 <%= image_tag @gallery.user.avatar.url, size: "80x80" %>
 <p><strong>ArtistName:</strong><%= @gallery.name %></p>

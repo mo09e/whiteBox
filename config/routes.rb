@@ -22,5 +22,7 @@ Rails.application.routes.draw do
   resources :galleries_favorites, only: [:create, :destroy]
   root to: "homes#index"
 
+  get "users/:id/favorites" => "users#favorites"
+
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end
