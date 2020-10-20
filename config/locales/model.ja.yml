@@ -1,0 +1,28 @@
+ja:
+  activerecord:
+    models:
+      artist: 作家
+      user: ユーザー
+      gallery: ギャラリー
+      message: メッセージ
+      label: ラベル
+      labeling: ラベル管理
+      reservation: 予約機能
+      entry: エントリー
+      room: DM部屋
+    attributes:
+      artist:
+        name: 作家名
+        phone_number: 電話番号
+        url: WEBサイト
+        images: 作品
+        note: 概要
+      gallery:
+        name: ギャラリー名
+        phone_number: 電話番号
+        address: 住所
+        rental_fee: レンタル料金
+        lending_period: 貸出期間単位
+        url: WEBサイト
+        images: 景観
+        layout: 間取り
