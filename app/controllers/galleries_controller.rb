@@ -3,7 +3,8 @@ class GalleriesController < ApplicationController
   before_action :current_user, only: [:edit, :destroy, :update, :new]
 
   def index
-    @galleries = Gallery.all
+    @search = Gallery.ransack(params[:q])
+    @galleries = @search.result
   end
 
   def new
