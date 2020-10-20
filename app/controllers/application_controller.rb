@@ -28,12 +28,4 @@ class ApplicationController < ActionController::Base
       end
     end
   end
-
-  # def after_sign_in_path_for(resource)
-  #   if current_user.gallery_owner == true
-  #     artists_path
-  #   else
-  #     galleries_path
-  #   end
-  # end
 end

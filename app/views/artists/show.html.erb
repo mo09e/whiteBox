@@ -27,11 +27,11 @@
       <% end %>
     <% end %>
 <% end %>
-<% unless @artist.user_id == current_user.id || @gallery.user_id == current_user.id %>
+<% unless @artist.user_id == current_user.id %>
   <% if @favorite.present? %>
-    <%= link_to 'お気に入り解除する', favorite_path(id: @favorite.id), method: :delete %>
+    <%= link_to 'お気に入り解除する', artists_favorite_path(id: @favorite.id), method: :delete %>
   <% else %>
-    <%= link_to 'お気に入りする', favorites_path(artist_id: @artist.user_id), method: :post %>
+    <%= link_to 'お気に入りする', artists_favorites_path(artist_id: @artist.id), method: :post %>
   <% end %>
 <% end %>
 <br>

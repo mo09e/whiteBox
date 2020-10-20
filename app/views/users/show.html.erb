@@ -1,6 +1,9 @@
 <h2>Mypage</h2>
-<% if current_user.gallery_owner == true && current_user.gallery.id.present? %>
-  <%= link_to '詳細ページへ', gallery_path(current_user.gallery.id) %>
-<% elsif current_user.gallery_owner == false && current_user.artist.id.present? %>
-  <%= link_to '詳細ページへ', artist_path(current_user.artist.id) %>
+<% if current_user.gallery_owner == true && current_user.gallery.present? %>
+  <%= link_to 'ギャラリー情報詳細ページへ', gallery_path(current_user.gallery.id) %>
+<% elsif current_user.gallery_owner == false && current_user.artist.present? %>
+  <%= link_to '作家情報詳細ページへ', artist_path(current_user.artist.id) %>
+<% else %>
+  <%= link_to '情報登録をしてください', home_path(current_user.id) %>
 <% end %>
+<%= link_to 'Edit Profile', edit_user_registration_path %> |

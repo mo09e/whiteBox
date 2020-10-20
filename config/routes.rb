@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
   resources :messages, only: [:create]
   resources :rooms, only: [:create, :show, :index]
+  resources :artists_favorites, only: [:create, :destroy]
   root to: "homes#index"
 
 

@@ -33,7 +33,7 @@ class ArtistsController < ApplicationController
 
   def show
     message_exchange
-    @favorite = current_user.favorites.find_by(artist_id: @artist.user_id)
+    @favorite = current_user.artists_favorites.find_by(artist_id: @artist.user_id)
   end
 
   def edit
