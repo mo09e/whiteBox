@@ -64,7 +64,7 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "whiteBox_#{Rails.env}"
 
   config.action_mailer.perform_caching = false
-
+  config.action_mailer.default_url_options = { host: 'vast-forest-66835.herokuapp.com' }
   config.action_mailer.delivery_method = :letter_opener_web
 
   # Ignore bad email addresses and do not raise email delivery errors.

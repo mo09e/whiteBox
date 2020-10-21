@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   resources :galleries do
     resources :reservations
   end
-  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+  
+  mount LetterOpenerWeb::Engine, at: "/letter_opener"
+
   resources :artists
   resources :homes, only: [:index, :show]
   resources :users, only: [:show]

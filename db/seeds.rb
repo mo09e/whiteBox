@@ -20,15 +20,6 @@ Label.create!([
 { name: 'その他東京（23区外)'}
 ])
 
-#admin ユーザー
-User.create!(name: "AdminUser",
-             email: "admin@example.com",
-             password: 'pass0123',
-             password_confirmation: 'pass0123',
-             gallery_owner: false,
-             admin: true
-             )
-
 #Artistユーザー
 15.times do |n|
   name = Faker::Artist.name
@@ -109,3 +100,12 @@ end
     gallery_id: Gallery.first.id + n
   )
 end
+
+# admin ユーザー
+User.create!(name: "AdminUser",
+             email: "admin@example.com",
+             password: 'pass0123',
+             password_confirmation: 'pass0123',
+             gallery_owner: false,
+             admin: true
+             )
