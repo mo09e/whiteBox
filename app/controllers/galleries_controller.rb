@@ -5,6 +5,7 @@ class GalleriesController < ApplicationController
   def index
     @search = Gallery.ransack(params[:q])
     @galleries = @search.result
+    @galleries = @galleries.joins(:labels).where(labels: { id: params[:label_id] }) if params[:label_id].present?
   end
 
   def new
@@ -53,7 +54,7 @@ class GalleriesController < ApplicationController
         @entry = Entry.new
       end
     end
-    
+
     @favorite = current_user.galleries_favorites.find_by(gallery_id: @gallery.id)
   end
 

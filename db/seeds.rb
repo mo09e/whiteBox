@@ -99,13 +99,13 @@
 # end
 
 #予約機能
-10.times do |n|
-  title = Faker::Music::Opera.verdi
-  Reservation.create!(
-    start_time: Date.today.since(1.weeks),
-    end_time: Date.today.since(2.weeks),
-    title: title,
-    artist_id: Artist.first.id + n,
-    gallery_id: Gallery.first.id + n
-  )
-end
+# 10.times do |n|
+#   title = Faker::Music::Opera.verdi
+#   Reservation.create!(
+#     start_time: Date.today.since(1.weeks),
+#     end_time: Date.today.since(2.weeks),
+#     title: title,
+#     artist_id: Artist.first.id + n,
+#     gallery_id: Gallery.first.id + n
+#   )
+# end

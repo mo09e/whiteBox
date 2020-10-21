@@ -24,5 +24,5 @@ Rails.application.routes.draw do
 
   get "users/:id/favorites" => "users#favorites"
 
-  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+  mount LetterOpenerWeb::Engine, at: "/letter_opener"
 end
