@@ -1,7 +1,7 @@
 <h1>Artists　Information</h1>
 <%= image_tag @artist.user.avatar.url, size: "80x80" %>
 <p><strong>ArtistName:</strong><%= @artist.name %></p>
-<% if current_user.id == @artist.user_id %>
+<% if user_signed_in? && current_user.id == @artist.user_id %>
   <p><strong>Name</strong><%= @artist.user.name %></p>
   <p><strong>Email:</strong><%= @artist.user.email %></p>
   <p><strong>phone_number:</strong><%= @artist.phone_number %></p>
@@ -13,29 +13,31 @@
     <%= image_tag image.url, size: "100x100" %>
   <% end %>
 <br>
-<% if @artist.user_id == current_user.id %>
-  <%= link_to 'DM一覧を見る', rooms_path(id: @artist.user_id) %>
-<% else %>
-  <% if @is_room == true %>
-    <%= link_to "DM", room_path(@room_id) %>
+<% if user_signed_in? %>
+  <% if @artist.user_id == current_user.id %>
+    <%= link_to 'DM List', rooms_path(id: @artist.user_id) %>
   <% else %>
-    <%= form_for @room do |f| %>
-      <%= fields_for @entry do |e| %>
-        <%= e.hidden_field :user_id, value: @artist.user_id %>
+    <% if @is_room == true %>
+      <%= link_to "Send DM", room_path(@room_id) %>
+    <% else %>
+      <%= form_for @room do |f| %>
+        <%= fields_for @entry do |e| %>
+          <%= e.hidden_field :user_id, value: @artist.user_id %>
+        <% end %>
+        <%= f.submit "Send DM" %>
       <% end %>
-      <%= f.submit "DMを送る" %>
     <% end %>
   <% end %>
-<% end %>
-<br>
-<% unless @artist.user_id == current_user.id %>
-  <% if @favorite.present? %>
-    <%= link_to 'お気に入り解除する', artists_favorite_path(id: @favorite.id), method: :delete %>
-  <% else %>
-    <%= link_to 'お気に入りする', artists_favorites_path(artist_id: @artist.id), method: :post %>
+  <br>
+  <% unless @artist.user_id == current_user.id %>
+    <% if @favorite.present? %>
+      <%= link_to 'お気に入り解除する', artists_favorite_path(id: @favorite.id), method: :delete %>
+    <% else %>
+      <%= link_to 'お気に入りする', artists_favorites_path(artist_id: @artist.id), method: :post %>
+    <% end %>
   <% end %>
+  <br>
+  <%= link_to "favorites", "/users/#{@artist.user_id}/favorites", class: 'btn btn-danger' %>
+  <br>
+  <%= link_to 'edit', edit_artist_path(@artist) %>
 <% end %>
-<br>
-<%= link_to "favorites", "/users/#{@artist.user_id}/favorites", class: 'btn btn-danger' %>
-<br>
-<%= link_to 'edit', edit_artist_path(@artist) %>

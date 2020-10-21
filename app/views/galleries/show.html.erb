@@ -1,28 +1,30 @@
 <h1>Galleries　Information</h1>
-<% if @gallery.user_id == current_user.id %>
-  <%= link_to 'Edit', edit_gallery_path(@gallery) %>
-<% end %>
-<br>
-<% if @gallery.user_id == current_user.id %>
-  <%= link_to 'DM一覧を見る', rooms_path(id: @gallery.user_id) %>
-<% else %>
-  <% if @is_room == true %>
-    <%= link_to "DM", room_path(@room_id) %>
+<% if user_signed_in? %>
+  <% if @gallery.user_id == current_user.id %>
+    <%= link_to 'Edit', edit_gallery_path(@gallery) %>
+  <% end %>
+  <br>
+  <% if @gallery.user_id == current_user.id %>
+    <%= link_to 'DM List', rooms_path(id: @gallery.user_id) %>
   <% else %>
-    <%= form_for @room do |f| %>
-      <%= fields_for @entry do |e| %>
-        <%= e.hidden_field :user_id, value: @gallery.user_id %>
+    <% if @is_room == true %>
+      <%= link_to "Send DM", room_path(@room_id) %>
+    <% else %>
+      <%= form_for @room do |f| %>
+        <%= fields_for @entry do |e| %>
+          <%= e.hidden_field :user_id, value: @gallery.user_id %>
+        <% end %>
+        <%= f.submit "Send DM" %>
       <% end %>
-      <%= f.submit "DMを送る" %>
     <% end %>
   <% end %>
-<% end %>
-<br>
-<% unless @gallery.user_id == current_user.id %>
-  <% if @favorite.present? %>
-    <%= link_to 'お気に入り解除する', galleries_favorite_path(id: @favorite.id), method: :delete %>
-  <% else %>
-    <%= link_to 'お気に入りする', galleries_favorites_path(gallery_id: @gallery.id), method: :post %>
+  <br>
+  <% unless @gallery.user_id == current_user.id %>
+    <% if @favorite.present? %>
+      <%= link_to 'お気に入り解除する', galleries_favorite_path(id: @favorite.id), method: :delete %>
+    <% else %>
+      <%= link_to 'お気に入りする', galleries_favorites_path(gallery_id: @gallery.id), method: :post %>
+    <% end %>
   <% end %>
 <% end %>
 <%= link_to "favorites", "/users/#{@gallery.user_id}/favorites", class: 'btn btn-danger' %>
@@ -61,15 +63,17 @@
   <% reservations.each do |reservation| %>
     <div>
       <%= link_to reservation.title, gallery_reservation_path(@gallery,reservation) %>
-      <% if @gallery.id == reservation.gallery_id && @gallery.user_id == current_user.id %>
-        <%= link_to 'Edit', edit_gallery_reservation_path(@gallery,reservation) %>
-        <%= link_to 'Destroy', gallery_reservation_path(@gallery,reservation), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+      <% if user_signed_in? %>
+        <% if @gallery.id == reservation.gallery_id && @gallery.user_id == current_user.id %>
+          <%= link_to 'Edit', edit_gallery_reservation_path(@gallery,reservation) %>
+          <%= link_to 'Destroy', gallery_reservation_path(@gallery,reservation), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+        <% end %>
       <% end %>
     </div>
   <% end %>
 <% end %>
-<% if current_user.gallery_owner != true %>
-  <%= link_to '予約する', new_gallery_reservation_path(@gallery) %>
+<% if user_signed_in? && current_user.gallery_owner != true %>
+  <%= link_to t('view.make_a_reservation'), new_gallery_reservation_path(@gallery) %>
 <% end %>
 <br>
 <br>

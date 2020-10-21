@@ -1,7 +1,7 @@
 <%= form_with(model: @artist, local: true) do |form| %>
   <% if @artist.errors.any? %>
     <div id="error_explanation">
-      <h2><%= @artist.errors.count %>件のエラーがあります。</h2>
+      <h2><%= @artist.errors.count %><%= t('activerecord.errors.messages.count_of_errors') %></h2>
       <ul>
       <% @artist.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -10,31 +10,43 @@
     </div>
   <% end %>
   <div class="form-group">
-    <%= form.label :name, "作家名" %>
-    <%= form.text_field :name %>
+    <%= form.label :name, 'ArtistName', class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-5">
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
   </div>
   <div class="form-group">
-    <%= form.label :phone_number %>
-    <%= form.text_field :phone_number %>
+    <%= form.label :phone_number, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-5">
+      <%= form.text_field :phone_number, class: "form-control" %>
+    </div>
   </div>
   <div class="form-group">
-    <%= form.label :url %>
-    <%= form.text_field :url %>
+    <%= form.label :url, class: "col-sm-2 col-form-label"  %>
+    <div class="col-sm-5">
+      <%= form.text_field :url, class: "form-control" %>
+    </div>
   </div>
   <div class="form-group">
-    <%= form.label :note %>
-    <%= form.text_field :note %>
+    <%= form.label :note, class: "col-sm-2 col-form-label"  %>
+    <div class="input-group col-sm-5">
+       <%= form.text_field :note, class: "form-control", rows: 5, id: "comment" %>
+    </div>
   </div>
   <div class="form-group">
-    <%= form.label :images %>
-    <% @artist.images.each do |image| %>
-      <%= hidden_field :artist, :images, multiple: true, value: image.identifier %>
-      <%= image_tag image.url, size: "100x100" %>
-    <% end %>
-    <%= form.file_field :images, multiple: true %>
-    <%= form.hidden_field :images_cache %>
+    <p><%= form.label :images, class: "col-sm-2 col-form-label"  %></p>
+    <div class="col-sm-5">
+      <% @artist.images.each do |image| %>
+        <%= hidden_field :artist, :images, multiple: true, value: image.identifier %>
+        <%= image_tag image.url, size: "100x100" %>
+      <% end %>
+      <%= form.file_field :images, multiple: true, class:"input-file", type: "file" %>
+      <%= form.hidden_field :images_cache %>
+    </div>
   </div>
   <div class="form-group">
-    <%= form.submit "create" %>
+    <div class="col-sm-5">
+      <%= form.submit t('view.register'), class:"btn btn-dark-moon btn-rounded btn-lg btn-block" %>
+    </div>
   </div>
 <% end %>

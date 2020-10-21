@@ -27,6 +27,8 @@ gem 'mini_magick', '~> 4.8'
 gem 'carrierwave'
 
 gem 'faker'
+gem 'bootstrap', '~> 4.1.1'
+gem 'jquery-rails'
 
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'

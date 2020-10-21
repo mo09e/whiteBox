@@ -11,19 +11,32 @@
 
   <body>
     <header>
-      <nav>
-        <% if user_signed_in? %>
-          Logged in as <strong><%= current_user.name %></strong>|
-          <%= link_to "Mypage", user_path(current_user) %> |
-          <%= link_to "Gallery", galleries_path %> |
-          <%= link_to "Artist", artists_path %> |
-          <%= link_to "Logout", sign_out_path %>
-        <% else %>
-          <%= link_to "SignIn", new_user_registration_path %> |
-          <%= link_to "Login", new_user_session_path %>
-        <% end %>
+      <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff;">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <%= link_to "WhiteBox", root_path, class:"navbar-brand" %>
+          </div>
+          <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active"><%= link_to "Gallery", galleries_path, class:"nav-link" %></li>
+              <li><%= link_to "Artist", artists_path, class:"nav-link" %></li>
+              <% if user_signed_in? %>
+                <li><%= link_to "Mypage", user_path(current_user), class:"nav-link" %></li>
+                <li><%= link_to "Logout", sign_out_path, class:"nav-link" %></li>
+                <span class="navbar-text">
+                  Logged in as <strong><%= current_user.name %></strong>
+                </span>
+              <% else %>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><%= link_to "SignIn", new_user_registration_path,  class:"nav-link" %></li>
+                  <li><%= link_to "Login", new_user_session_path, class:"nav-link" %></li>
+                </ul>
+              <% end %>
+          </div>
       </nav>
     </header>
+
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
