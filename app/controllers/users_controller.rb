@@ -7,6 +7,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    message_exchange
+    @user = User.find(params[:id])
   end
 end

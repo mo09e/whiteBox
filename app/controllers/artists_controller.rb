@@ -32,7 +32,24 @@ class ArtistsController < ApplicationController
   end
 
   def show
-    message_exchange
+    @current_user_entry = Entry.where(user_id: current_user.id)
+    @user_entry = Entry.where(user_id: @artist.user_id)
+    if @artist.user_id == current_user.id
+       @current_user_entry
+    else
+      @current_user_entry.each do |current_user_e|
+        @user_entry.each do |user_e|
+          if current_user_e.room_id == user_e.room_id then
+            @is_room = true
+            @room_id = current_user_e.room_id
+          end
+        end
+      end
+      unless @is_room
+        @room = Room.new
+        @entry = Entry.new
+      end
+    end
     @favorite = current_user.artists_favorites.find_by(artist_id: @artist.id)
   end
 

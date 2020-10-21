@@ -4,6 +4,22 @@
   <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :name%><br />
+    <%= f.text_field :name, autofocus: true  %>
+  </div>
+
+  <div class="field">
+    <% if current_user.persisted? && current_user.avatar? %>
+      <%= image_tag current_user.avatar.to_s %>
+      <label><%= f.check_box :remove_avatar %> ImageDelete</label>
+    <% else %>
+      <%= image_tag 'fallback/default_avatar.png', size: "80x80" %>
+      <%= f.hidden_field :avatar_cache %>
+    <% end %>
+      <%= f.file_field :avatar %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
