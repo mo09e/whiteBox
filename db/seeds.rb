@@ -36,3 +36,5 @@ User.create!(name: "AdminUser",
              gallery_owner: false,
              admin: true
              )
+
+#Artistユーザー

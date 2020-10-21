@@ -26,6 +26,8 @@ gem 'ransack'
 gem 'mini_magick', '~> 4.8'
 gem 'carrierwave'
 
+gem 'faker'
+
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
