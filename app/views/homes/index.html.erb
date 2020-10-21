@@ -46,10 +46,8 @@
         <td><%= gallery.rental_fee_i18n %></td>
         <td><%= gallery.lending_period_i18n %></td>
         <td>
-          <% if gallery.images? %>
-            <%= image_tag gallery.images[0].to_s, size: "100x100" %>
-          <% else %>
-            <%= image_tag("/assets/image_default.png", size: "100x100") %>
+          <% gallery.label.each do |label| %>
+            <p  class="label label-info"><%= label.name %></p>
           <% end %>
         </td>
       </tr>

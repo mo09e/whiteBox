@@ -2,7 +2,7 @@
  <p>DM一覧</p>
   <% @another_entries.each do |e| %>
     <%= link_to room_path(e.room.id) do %>
-      <%= image_tag e.user.avatar.url %><%= e.user.name %>さんとのDM<br>
+      <%= image_tag e.user.avatar.url, size: "50x50" %><%= e.user.name %>さんとのDM<br>
     <% end %>
   <% end %>
 <% else %>
