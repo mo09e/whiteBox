@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show]
-   def show
-     message_exchange
-   end
+  def favorites
+    @user = User.find(params[:id])
+    @a_favorites = ArtistsFavorite.where(user_id: @user)
+    @g_favorites = GalleriesFavorite.where(user_id: @user)
+  end
+
+  def show
+    @user = User.find(params[:id])
+  end
 end

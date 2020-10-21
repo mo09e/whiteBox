@@ -1,0 +1,2 @@
+module GalleriesFavoritesHelper
+end
