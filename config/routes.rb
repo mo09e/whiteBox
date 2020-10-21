@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :galleries do
     resources :reservations
   end
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
   resources :artists
   resources :homes, only: [:index, :show]
   resources :users, only: [:show]
@@ -23,6 +24,4 @@ Rails.application.routes.draw do
   root to: "homes#index"
 
   get "users/:id/favorites" => "users#favorites"
-
-  mount LetterOpenerWeb::Engine, at: "/letter_opener"
 end
