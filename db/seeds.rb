@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 # 地区ラベル
 # Label.create!([
 # { name: '銀座'},
@@ -105,3 +97,15 @@
 #     label_id: Label.first.id
 #   )
 # end
+
+#予約機能
+10.times do |n|
+  title = Faker::Music::Opera.verdi
+  Reservation.create!(
+    start_time: Date.today.since(1.weeks),
+    end_time: Date.today.since(2.weeks),
+    title: title,
+    artist_id: Artist.first.id + n,
+    gallery_id: Gallery.first.id + n
+  )
+end
