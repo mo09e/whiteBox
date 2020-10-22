@@ -1,5 +1,7 @@
-<h1>Artists　Information</h1>
-<%= image_tag @artist.user.avatar.url, size: "80x80" %>
+<h1><span class="break-down">A</span>r<span>ti</span>st <span>in</span>f<span>or</span>mation</h1>
+<br>
+<br>
+<%= image_tag @artist.user.avatar.url, id: "avatar-images" %>
 <p><strong>ArtistName:</strong><%= @artist.name %></p>
 <% if user_signed_in? && current_user.id == @artist.user_id %>
   <p><strong>Name</strong><%= @artist.user.name %></p>
@@ -10,7 +12,7 @@
 <p><strong>Note:</strong><%= @artist.note %></p>
 <p><strong>image:</strong></p>
   <% @artist.images.each do |image| %>
-    <%= image_tag image.url, size: "100x100" %>
+    <%= image_tag image.url, class: "img-fluid", id: "m-images" %>
   <% end %>
 <br>
 <% if user_signed_in? %>

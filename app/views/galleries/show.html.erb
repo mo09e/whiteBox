@@ -1,4 +1,28 @@
-<h1>Galleries　Information</h1>
+<h1><span class="break-down">G</span>a<span>lla</span>ry <span>in</span>f<span>or</span>mation</h1>
+<%= image_tag @gallery.user.avatar.url, id: "avatar-images" %>
+<p><strong>ArtistName:</strong><%= @gallery.name %></p>
+<p><strong>Name</strong><%= @gallery.user.name %></p>
+<p><strong>Email:</strong><%= @gallery.user.email %></p>
+<p><strong>address:</strong><%= @gallery.address %></p>
+<p><strong>phone_number:</strong><%= @gallery.phone_number %></p>
+<p><strong>rental_fee:</strong><%= @gallery.rental_fee_i18n %></p>
+<p><strong>lending_period:</strong><%= @gallery.lending_period_i18n %></p>
+<p><strong>Web:</strong><%= link_to "#{@gallery.url}", @gallery.url %></p>
+<p><strong>location:</strong>
+<% @gallery.label.each do |label| %>
+  <p class="btn btn-outline-danger btn-sm"><%= label.name %></p>
+<% end %>
+<p><strong>Note:</strong><%= @gallery.note %></p>
+<p><strong>Layout:</strong></p>
+<div class="layout_i">
+<p><%= image_tag @gallery.layout.url, class: "img-fluid", id: "l-images" %></p>
+</div>
+<p><strong>image:</strong></p>
+  <% @gallery.images.each do |image| %>
+    <%= image_tag image.url, class: "img-fluid", id: "m-images" %>
+  <% end %>
+<br>
+<br>
 <% if user_signed_in? %>
   <% if @gallery.user_id == current_user.id %>
     <%= link_to 'Edit', edit_gallery_path(@gallery) %>
@@ -28,34 +52,6 @@
   <% end %>
 <% end %>
 <%= link_to "favorites", "/users/#{@gallery.user_id}/favorites", class: 'btn btn-danger' %>
-<br>
-<%= image_tag @gallery.user.avatar.url, size: "80x80" %>
-<p><strong>ArtistName:</strong><%= @gallery.name %></p>
-<p><strong>Name</strong><%= @gallery.user.name %></p>
-<p><strong>Email:</strong><%= @gallery.user.email %></p>
-<p><strong>address:</strong><%= @gallery.address %></p>
-<p><strong>phone_number:</strong><%= @gallery.phone_number %></p>
-<p><strong>rental_fee:</strong><%= @gallery.rental_fee_i18n %></p>
-<p><strong>lending_period:</strong><%= @gallery.lending_period_i18n %></p>
-<p><strong>Web:</strong><%= link_to "#{@gallery.url}", @gallery.url %></p>
-<p><strong>location:</strong>
-<% @gallery.label.each do |label| %>
-  <p  class="label label-info"><%= label.name %></p>
-<% end %>
-<p><strong>Note:</strong><%= @gallery.note %></p>
-<p><strong>Layout:</strong></p>
-<div class="layout_i">
-  <% if @gallery.layout.present? %>
-  <p><%= image_tag @gallery.layout.url %></p>
-  <% else %>
-  <p><%= image_tag("/assets/default.png", size: "300x300") %></p>
-  <% end %>
-</div>
-<p><strong>image:</strong></p>
-  <% @gallery.images.each do |image| %>
-    <%= image_tag image.url, size: "100x100" %>
-  <% end %>
-<br>
 <br>
 
 <%= month_calendar events: @reservation do |date, reservations| %>
