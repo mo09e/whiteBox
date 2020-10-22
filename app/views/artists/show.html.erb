@@ -14,32 +14,40 @@
   <% @artist.images.each do |image| %>
     <%= image_tag image.url, class: "img-fluid", id: "m-images" %>
   <% end %>
-<br>
-<% if user_signed_in? %>
-  <% if @artist.user_id == current_user.id %>
-    <%= link_to 'DM List', rooms_path(id: @artist.user_id) %>
-  <% else %>
-    <% if @is_room == true %>
-      <%= link_to "Send DM", room_path(@room_id) %>
-    <% else %>
-      <%= form_for @room do |f| %>
-        <%= fields_for @entry do |e| %>
-          <%= e.hidden_field :user_id, value: @artist.user_id %>
+  <br>
+  <br>
+  <div class='btn-toolbar'>
+    <div class="btn-group" role="group">
+      <% if user_signed_in? %>
+        <% if @artist.user_id == current_user.id %>
+          <%= link_to 'DM List', rooms_path(id: @artist.user_id), class: 'btn btn-orange-moon' %>
+        <% else %>
+          <% if @is_room == true %>
+            <%= link_to "Send DM", room_path(@room_id), class: "btn btn-dark-moon" %>
+          <% else %>
+            <%= form_for @room do |f| %>
+              <%= fields_for @entry do |e| %>
+                <%= e.hidden_field :user_id, value: @artist.user_id %>
+              <% end %>
+              <%= f.submit "Send DM", class: "btn btn-dark-moon" %>
+            <% end %>
+          <% end %>
         <% end %>
-        <%= f.submit "Send DM" %>
+
+        <% unless @artist.user_id == current_user.id %>
+          <% if @favorite.present? %>
+            <%= link_to 'Unfavorite', artists_favorite_path(id: @favorite.id), method: :delete, class: "btn btn-dark-moon"  %>
+          <% else %>
+            <%= link_to 'Favorite', artists_favorites_path(artist_id: @artist.id), method: :post, class: "btn btn-dark-blue"  %>
+          <% end %>
+        <% end %>
+
+        <%= link_to "Favorite List", "/users/#{@artist.user_id}/favorites", class: 'btn btn-danger', class:"btn btn-orange-moon" %>
+
+        <% if current_user == @artist.user_id %>
+          <%= link_to 'edit', edit_artist_path(@artist), class:"btn btn-orange-moon" %>
+        <% end %>
       <% end %>
-    <% end %>
-  <% end %>
-  <br>
-  <% unless @artist.user_id == current_user.id %>
-    <% if @favorite.present? %>
-      <%= link_to 'お気に入り解除する', artists_favorite_path(id: @favorite.id), method: :delete %>
-    <% else %>
-      <%= link_to 'お気に入りする', artists_favorites_path(artist_id: @artist.id), method: :post %>
-    <% end %>
-  <% end %>
-  <br>
-  <%= link_to "favorites", "/users/#{@artist.user_id}/favorites", class: 'btn btn-danger' %>
-  <br>
-  <%= link_to 'edit', edit_artist_path(@artist) %>
-<% end %>
+      
+    </div>
+  </div>

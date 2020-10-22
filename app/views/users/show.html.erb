@@ -16,4 +16,4 @@
   <%= link_to '情報登録をしてください', home_path(current_user.id) %> |
 <% end %>
 <%= link_to 'Edit Profile', edit_user_registration_path %> |
-<%= link_to "favorites", "/users/#{@user.id}/favorites", class: 'btn btn-danger' %>
+<%= link_to "favorites", "/users/#{@user.id}/favorites" %>

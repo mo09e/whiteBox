@@ -4,6 +4,7 @@
 
 // *---- 共通 ----* //
 body {
+  color: #696969;
   padding: 0;
   margin: 0;
   height: 100vh;
@@ -28,7 +29,7 @@ body {
 
 a {
   padding: 0 .3em;
-  color: rgb(0, 0, 0);
+  color: #696969;
   background-image: linear-gradient(rgba(0,0,0,0) 50%, rgba(85, 29, 38, 1) 50%);
   background-position: 0 0;
   background-size: auto 200%;
@@ -46,7 +47,7 @@ h1 {
   color: #dcdcdc;
   animation: neonBlur 16s infinite;
   font-weight: 300;
-  font-family: 'Dosis';
+  font-family: 'Dosis', sans-serif;
 }
 h1 > span:nth-child(1) {
   opacity: .5;
@@ -80,4 +81,13 @@ h1 > span:nth-child(4) {
   0% { text-shadow: 0px 0px 25px #dcdcdc; }
   50% { text-shadow: 0px 0px 75px #dcdcdc; filter: blur(0.5px) }
   100% { text-shadow: 0px 0px 25px #dcdcdc; }
+}
+
+
+//  *----　メッセージ ---* //
+.notice .aleart {
+  background-color: black;
+  color: white;
+  font-size: 1rem;
+  font-family: "SoukouMincho";
 }
