@@ -12,9 +12,12 @@ ja:
     image_g: 景観
     search: 検索
     clear_sarch_content: 検索クリア
+    gallery_information: ギャラリー詳細情報へ
+    artist_information: アーティスト詳細情報へ
     msg:
       please_select_the_appropriate_area: 該当するエリアを選んでください
       if_you_do_not_check_this_box_you_will_be_registered_as_an_artist: こちらにチェックがない場合はアーティストとして登録されます。
+      please_register_your_information:　情報を登録してください
   activerecord:
     errors:
       messages:
