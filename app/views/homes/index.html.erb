@@ -23,7 +23,7 @@
   <tbody>
     <% @artists.each do |artist| %>
     <tr>
-      <td><%= image_tag artist.user.avatar.url, size: "100x100" %></td>
+      <td><%= image_tag artist.user.avatar.url, size: "100" %></td>
       <td><%= link_to "#{artist.name}", artist_path(artist) %></td>
       <td>
         <% artist.images.each do |image| %>

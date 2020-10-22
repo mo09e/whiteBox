@@ -14,12 +14,12 @@
       <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #fff;">
         <div class="container-fluid">
           <div class="navbar-header">
-            <%= link_to "WhiteBox", root_path, class:"navbar-brand" %>
+           <%= link_to "WhiteBox", root_path, class:"navbar-brand" %>
           </div>
           <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active"><%= link_to "Gallery", galleries_path, class:"nav-link" %></li>
-              <li><%= link_to "Artist", artists_path, class:"nav-link" %></li>
+              <li class="nav-item active"><%= link_to "Artist", artists_path, class:"nav-link" %></li>
               <% if user_signed_in? %>
                 <li class="nav-item active"><%= link_to "Mypage", user_path(current_user), class:"nav-link" %></li>
                 <li class="nav-item active"><%= link_to "Logout", sign_out_path, class:"nav-link" %></li>
@@ -37,7 +37,7 @@
       </nav>
     </header>
     <div class="container">
-       <div class="mx-auto" style="width: 900px;">
+       <div class="col-md-10 offset-md-2">
           <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
           <%= yield %>

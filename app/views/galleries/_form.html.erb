@@ -11,55 +11,56 @@
   <% end %>
   <div class="form-group">
     <%= form.label :name, t('view.gallery_name'), class: "col-sm-2 col-form-label" %>
-    <div class="col-sm-5">
+    <div class="col-sm-7">
       <%= form.text_field :name, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
     <%= form.label :phone_number, class: "col-sm-2 col-form-label" %>
-    <div class="col-sm-5">
+    <div class="col-sm-7">
       <%= form.text_field :phone_number, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
     <%= form.label :address, class: "col-sm-2 col-form-label" %>
-    <div class="col-sm-5">
+    <div class="col-sm-7">
       <%= form.text_field :address, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
     <%= form.label :label, t('view.location'), class: "col-sm-2 col-form-label" %>
+    <span class="btn btn-dark-moon btn-rounded btn-sm"><%= t('view.msg.please_select_the_appropriate_area') %></span>
     <div class="form-inline" id="location">
       <%= form.collection_check_boxes(:label_ids, Label.all, :id, :name)%>
     </div>
   </div>
   <div class="form-group">
     <%= form.label :url, t('view.url'), class: "col-sm-2 col-form-label"  %>
-    <div class="col-sm-5">
+    <div class="col-sm-7">
       <%= form.text_field :url, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
     <%= form.label :rental_fee, t('view.rental_fee'), class: "col-sm-2 col-form-label" %>
-    <div class="col-sm-5">
+    <div class="col-sm-7">
       <%= form.select :rental_fee, Gallery.rental_fees_i18n.invert %>
     </div>
   </div>
   <div class="form-group">
     <%= form.label :lending_period, t('view.lending_period'), class: "col-sm-2 col-form-label" %>
-    <div class="col-sm-5">
+    <div class="col-sm-7">
       <%= form.select :lending_period, Gallery.lending_periods_i18n.invert %>
     </div>
   </div>
   <div class="form-group">
     <%= form.label :note, t('view.note'), class: "col-sm-2 col-form-label" %>
-    <div class="input-group col-sm-5">
+    <div class="input-group col-sm-7">
        <%= form.text_field :note, class: "form-control", rows: 5, id: "comment" %>
     </div>
   </div>
   <div class="form-group">
     <%= form.label :layout, t('view.layout'), class: "col-sm-2 col-form-label" %>
-    <div class="col-sm-5">
+    <div class="col-sm-7">
       <%= form.file_field :layout, class:"input-file", type: "file" %>
       <% if action_name == "edit" %>
         <%= image_tag @gallery.layout.url, size: "100x100" %>
@@ -69,7 +70,7 @@
   </div>
   <div class="form-group">
     <%= form.label :images, t('view.image_g'), class: "col-sm-2 col-form-label" %>
-      <div class="col-sm-5">
+      <div class="col-sm-7">
         <% @gallery.images.each do |image| %>
           <%= hidden_field :gallery, :images, multiple: true, value: image.identifier %>
           <%= image_tag image.url, size: "100x100" %>
@@ -79,7 +80,7 @@
       </div>
   </div>
   <div class="form-group">
-    <div class="col-sm-5">
+    <div class="col-sm-7">
       <%= form.submit t('view.register'), class:"btn btn-dark-moon btn-rounded btn-lg btn-block" %>
     </div>
   </div>

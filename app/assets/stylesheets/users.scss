@@ -81,8 +81,3 @@ h1 > span:nth-child(4) {
   50% { text-shadow: 0px 0px 75px #dcdcdc; filter: blur(0.5px) }
   100% { text-shadow: 0px 0px 25px #dcdcdc; }
 }
-
-table, th, td {
-  border-style: none !important;
-  padding-left: 5px;
-}

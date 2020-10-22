@@ -15,8 +15,37 @@
     border-radius: 35px;
 }
 
+.btn-dark-blue {
+    background: #7474BF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #348AC7, #7474BF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #348AC7, #7474BF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;
+    border: 3px solid #eee;
+}
+
 #location {
-  width: 600px;
-  white-space: nowrap;
+  width: 500px;
+  white-space: pre-wrap;
   padding-left: 20px;
+}
+
+// テーブル関係
+table, th, td {
+  border-style: none !important;
+  padding-left: 5px;
+}
+
+.t_head {
+  color: #ffffff;
+  height: 25px;
+}
+
+.g-avatar, .g-rental_fee,
+.g-lending_period {
+  text-align: center;
+}
+
+// 画像関係
+.avatar img {
+  width: 50px;
 }

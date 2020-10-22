@@ -10,6 +10,10 @@ ja:
     url: WEBサイト
     layout: 間取り
     image_g: 景観
+    search: 検索
+    clear_sarch_content: 検索クリア
+    msg:
+      please_select_the_appropriate_area: 該当するエリアを選んでください
   activerecord:
     errors:
       messages:
