@@ -1,36 +1,44 @@
-<h2>Gallery List</h2>
-<br>
-<%= search_form_for @search do |f| %>
-  <%= f.label :name, "Gallery Name", class:'search', placeholder: 'ギャラリー名' %>
-  <%= f.search_field :name_cont %>
-  <%= f.select :label_name_cont, options_from_collection_for_select(Label.all, :name, :name, "---") ,include_blank: '選択',class: 'form-control drop' %>
-  <%= f.submit "検索" %>
-  <%= link_to '検索条件クリア', galleries_path %>
-<% end %>
-<table class="gallery_row" id="main_table">
-  <thead>
-    <tr>
-      <th class="t_head">avatar</th>
-      <th class="t_head">name</th>
-      <th class="t_head"><%= sort_link(@search, :rental_fee, "rental_fee") %></th>
-      <th class="t_head"><%= sort_link(@search, :lending_period, "lending_period") %></th>
-      <th class="t_head">location</th>
-      <th colspan="3" class="t_head"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @galleries.each do |gallery| %>
-      <tr>
-        <td><%= image_tag gallery.user.avatar.url, size: "100x100" %></td>
-        <td><%= link_to gallery.name, gallery_path(gallery) %></td>
-        <td><%= gallery.rental_fee_i18n %></td>
-        <td><%= gallery.lending_period_i18n %></td>
-        <td>
-          <% gallery.label.each do |label| %>
-            <p  class="label label-info"><%= label.name %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-2">
+      <br>
+      <h1><span class="break-down">Gal</span><span>l</span>er<span>y</span>L<span>is</span>t</h1>
+      <br>
+      <br>
+      <%= search_form_for @q do |f| %>
+        <%= f.label :name, "Gallery Name", class:'search', placeholder: 'ギャラリー名' %>
+        <%= f.search_field :name_cont %>
+        <%= f.select :label_name_eq, options_from_collection_for_select(Label.all, :name, :name, "---") , include_blank: "地区", class: 'form-control drop' %>
+        <%= f.submit "検索" %>
+        <%= link_to '検索条件クリア', galleries_path %>
+      <% end %>
+      <table class="g-table" id="main_table">
+        <thead>
+          <tr>
+            <th class="g_head">avatar</th>
+            <th class="g_head">name</th>
+            <th class="g_head"><%= sort_link(@q, :rental_fee, "rental_fee") %></th>
+            <th class="g_head"><%= sort_link(@q, :lending_period, "lending_period") %></th>
+            <th class="g_head">location</th>
+            <th colspan="3" class="t_head"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @galleries.each do |gallery| %>
+            <tr>
+              <td class="g-avatar"><%= image_tag gallery.user.avatar.url, size: "100x100" %></td>
+              <td class="g-name"><%= link_to gallery.name, gallery_path(gallery) %></td>
+              <td class="g-rental_fee"><%= gallery.rental_fee_i18n %></td>
+              <td class="g-lending_period"><%= gallery.lending_period_i18n %></td>
+              <td class="g-location">
+                <% gallery.label.each do |label| %>
+                  <p  class="label label-info"><%= label.name %></p>
+                <% end %>
+              </td>
+            </tr>
           <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

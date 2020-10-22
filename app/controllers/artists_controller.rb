@@ -66,6 +66,11 @@ class ArtistsController < ApplicationController
     end
   end
 
+  def destroy
+    @artist.destroy
+    redirect_to artists_path, notice: "Deleted"
+  end
+
   def artist_params
     params.require(:artist).permit(:name, :note, :phone_number, { images: []}, :url, :images_cache)
                                    .merge(user_id: current_user.id)

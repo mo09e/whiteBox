@@ -1,3 +1,88 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// *---- 共通 ----* //
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  background-color: #fff;
+  font-family: noto-sans-cjk-jp,"游ゴシック Medium",
+               "Yu Gothic Medium","游ゴシック",
+               "Yu Gothic","游ゴシック体",YuGothic,
+               "ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",
+               "メイリオ",Meiryo,sans-serif,'Dosis';
+}
+
+.navbar a {
+  background-image: linear-gradient(rgba(0,0,0,0) 50%, rgba(182, 182, 182, 1) 50%);
+  background-position: 0 0;
+  background-size: auto 200%;
+  transition: .3s;
+}
+.navbar a:hover {
+  background-position: 0 100%;
+  color: #fffFFF;
+}
+
+a {
+  padding: 0 .3em;
+  color: rgb(0, 0, 0);
+  background-image: linear-gradient(rgba(0,0,0,0) 50%, rgba(85, 29, 38, 1) 50%);
+  background-position: 0 0;
+  background-size: auto 200%;
+  transition: .3s;
+}
+a:hover {
+  background-position: 0 100%;
+  color: #fff;
+}
+
+h1 {
+  display: flex;
+  height: 56px;
+  font-size: 56px;
+  color: #dcdcdc;
+  animation: neonBlur 16s infinite;
+  font-weight: 300;
+  font-family: 'Dosis';
+}
+h1 > span:nth-child(1) {
+  opacity: .5;
+  font-weight: 800;
+}
+h1 > span:nth-child(2) {
+  animation: neonBlink 5s infinite;
+}
+h1 > span:nth-child(3) {
+  opacity: .4;
+}
+h1 > span:nth-child(4) {
+  animation: neonBlink 2s infinite;
+}
+
+@keyframes neonBlink {
+  0% { opacity: 1; }
+  10% { opacity: .6; }
+  12% { opacity: 1; }
+  15% { opacity: .4; }
+  17% { opacity: 1; }
+  18% { opacity: .3; }
+  19% { opacity: 1; }
+  89% { opacity: 1; }
+  91% { opacity: .7; }
+  94% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+@keyframes neonBlur {
+  0% { text-shadow: 0px 0px 25px #dcdcdc; }
+  50% { text-shadow: 0px 0px 75px #dcdcdc; filter: blur(0.5px) }
+  100% { text-shadow: 0px 0px 25px #dcdcdc; }
+}
+
+table, th, td {
+  border-style: none !important;
+  padding-left: 5px;
+}

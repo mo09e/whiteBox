@@ -1,6 +1,17 @@
-<h1>White Box</h1>
+<br>
+  <h1>
+    <span class="break-down"> W</span>
+    <span>hi</span>
+    t
+    <span>e</span>
+    B
+    <span>o</span>
+    x
+  </h1>
+<br>
+<br>
 <h3>Artist</h3>
-<table class="task_row" id="main_table">
+<table class="artist_row" id="main_table">
   <thead>
     <tr>
       <th class="t_head">avatar</th>
@@ -24,7 +35,7 @@
   </tbody>
 </table>
 <br>
-<h4><%= link_to '作家一覧へ', artists_path %></h4>
+<h4><%= link_to 'Artist List', artists_path, class: "btn btn-dark-moon btn-rounded btn-lg" %></h4>
 <br>
 <h3>Gallery</h3>
 <table class="gallery_row" id="main_table">
@@ -33,7 +44,7 @@
       <th class="t_head">avatar</th>
       <th class="t_head">name</th>
       <th class="t_head">rental fee</th>
-      <th class="t_head">lending period></th>
+      <th class="t_head">lending period</th>
       <th class="t_head">location</th>
       <th colspan="3" class="t_head"></th>
     </tr>
@@ -55,4 +66,6 @@
   </tbody>
 </table>
 <br>
-<h4><%= link_to 'ギャラリー一覧へ', galleries_path %></h4>
+<h4><%= link_to 'Gallery List', galleries_path, class: "btn btn-dark-moon btn-rounded btn-lg" %></h4>
+<br>
+<br>

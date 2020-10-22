@@ -3,8 +3,8 @@ class GalleriesController < ApplicationController
   before_action :current_user, only: [:edit, :destroy, :update, :new]
 
   def index
-    @search = Gallery.ransack(params[:q])
-    @galleries = @search.result
+    @q = Gallery.ransack(params[:q])
+    @galleries = @q.result
     @galleries = @galleries.joins(:labels).where(labels: { id: params[:label_id] }) if params[:label_id].present?
   end
 
@@ -70,6 +70,12 @@ class GalleriesController < ApplicationController
     end
   end
 
+  def destroy
+    @gallery.destroy
+    redirect_to root_path, notice: "Deleted"
+  end
+  
+  private
   def gallery_params
     params.require(:gallery).permit(:name, :note, :phone_number, :url, :address, :rental_fee, :lending_period,
                                     { images: []}, :images_cache, :layout, :layout_cache, { label_ids: [] })

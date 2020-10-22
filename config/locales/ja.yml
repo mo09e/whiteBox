@@ -1,7 +1,15 @@
 ja:
   view:
+    gallery_name: ギャラリー名
     register: 登録
     make_a_reservation: 予約する
+    rental_fee: レンタル料金
+    lending_period: 貸出期間単位
+    note: 概要
+    location: 地区
+    url: WEBサイト
+    layout: 間取り
+    image_g: 景観
   activerecord:
     errors:
       messages:

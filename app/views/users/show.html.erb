@@ -1,4 +1,13 @@
-<h2>Mypage</h2>
+<h1>
+  <span class="break-down">Ac</span>
+  <span>c</span>
+  ount
+  <span>i</span>
+  nfo
+  <span>r</span>
+  mation
+</h1>
+<br>
 <% if current_user.gallery_owner == true && current_user.gallery.present? %>
   <%= link_to 'ギャラリー情報詳細ページへ', gallery_path(current_user.gallery.id) %> |
 <% elsif current_user.gallery_owner == false && current_user.artist.present? %>

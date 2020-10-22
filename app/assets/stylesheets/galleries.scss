@@ -1,3 +1,16 @@
 // Place all the styles related to the galleries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// *--- ギャラリー関係 ---*//
+
+.t_head {
+  background-color: #337ab7;
+  color: #ffffff;
+  height: 25px;
+}
+
+.g-avatar, .g-name, .g-rental_fee,
+.g-lending_period, .g-location {
+  text-align: center;
+}
