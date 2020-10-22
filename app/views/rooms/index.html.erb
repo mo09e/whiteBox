@@ -1,5 +1,6 @@
+<br><br>
 <% if @user.id == current_user.id %>
- <p>DM一覧</p>
+ <p class: "btn btn-dark-moon btn-rounded btn-block">DM List</p>
   <% @another_entries.each do |e| %>
     <%= link_to room_path(e.room.id) do %>
       <%= image_tag e.user.avatar.url, size: "50x50" %><%= e.user.name %>さんとのDM<br>
@@ -7,6 +8,6 @@
   <% end %>
 <% else %>
   <% if @is_room == true %>
-    <%= link_to "DMを送る", room_path(@room_id) %>
+    <%= link_to "Send DM", room_path(@room_id), class: "btn btn-dark-moon btn-rounded btn-block" %>
   <% end %>
 <% end %>

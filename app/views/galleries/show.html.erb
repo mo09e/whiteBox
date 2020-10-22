@@ -1,3 +1,4 @@
+<br><br>
 <h1><span class="break-down">G</span>a<span>lla</span>ry <span>in</span>f<span>or</span>mation</h1>
 <%= image_tag @gallery.user.avatar.url, id: "avatar-images" %>
 <p><strong>ArtistName:</strong><%= @gallery.name %></p>
@@ -27,7 +28,7 @@
   <div class="btn-group" role="group">
     <% if user_signed_in? %>
       <br>
-      
+
       <% if @gallery.user_id == current_user.id %>
         <%= link_to 'DM List', rooms_path(id: @gallery.user_id), class: 'btn btn-orange-moon' %>
       <% else %>
