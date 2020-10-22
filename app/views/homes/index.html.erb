@@ -52,7 +52,7 @@
   <tbody>
     <% @galleries.each do |gallery| %>
       <tr>
-        <td><%= image_tag gallery.user.avatar.url, size: "100x100" %></td>
+        <td><%= image_tag gallery.user.avatar.url, size: "100" %></td>
         <td><%= link_to gallery.name, gallery_path(gallery) %></td>
         <td><%= gallery.rental_fee_i18n %></td>
         <td><%= gallery.lending_period_i18n %></td>
