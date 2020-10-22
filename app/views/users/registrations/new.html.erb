@@ -34,7 +34,7 @@
   <div class="field">
     <%= f.label :gallery_owner %><br />
     <%= f.radio_button :gallery_owner, "true", for: "true" %>yes<br />
-    ※こちらにチェックのない方は作家として登録されます。
+    <span class="btn btn-dark-moon btn-rounded btn-sm"><%= t('view.msg.if_you_do_not_check_this_box_you_will_be_registered_as_an_artist') %></span><br />
   </div>
 
   <div class="actions">

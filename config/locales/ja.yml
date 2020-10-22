@@ -14,6 +14,7 @@ ja:
     clear_sarch_content: 検索クリア
     msg:
       please_select_the_appropriate_area: 該当するエリアを選んでください
+      if_you_do_not_check_this_box_you_will_be_registered_as_an_artist: こちらにチェックがない場合はアーティストとして登録されます。
   activerecord:
     errors:
       messages:
