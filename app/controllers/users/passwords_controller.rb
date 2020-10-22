@@ -1,10 +1,12 @@
 # frozen_string_literal: true
 
 class Users::PasswordsController < Devise::PasswordsController
+
   # GET /resource/password/new
-  # def new
-  #   super
-  # end
+  def new
+    redirect_to :root if user_signed_in?
+    super
+  end
 
   # POST /resource/password
   # def create

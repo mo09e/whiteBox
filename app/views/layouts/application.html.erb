@@ -16,7 +16,10 @@
           <div class="navbar-header">
            <%= link_to "WhiteBox", root_path, class:"navbar-brand" %>
           </div>
-          <div class="collapse navbar-collapse" id="navbarText">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active"><%= link_to "Gallery", galleries_path, class:"nav-link" %></li>
               <li class="nav-item active"><%= link_to "Artist", artists_path, class:"nav-link" %></li>
@@ -36,10 +39,14 @@
           </div>
       </nav>
     </header>
-    <div class="container">
+    <div class="container-fluid">
+      <% flash.each do |key, value| %>
+         <div id="message_n_a"><%= content_tag(:div, value, class: "#{key}") %></div>
+       <% end %>
+    <div>
+      <div class="container">
        <div class="col-md-10 offset-md-2">
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
+          <br>
           <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
           <%= yield %>
         </div>
