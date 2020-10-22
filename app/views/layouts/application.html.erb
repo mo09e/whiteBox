@@ -10,46 +10,38 @@
   </head>
 
   <body>
-    <header>
-      <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #fff;">
-        <div class="container-fluid">
-          <div class="navbar-header">
-           <%= link_to "WhiteBox", root_path, class:"navbar-brand" %>
-          </div>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active"><%= link_to "Gallery", galleries_path, class:"nav-link" %></li>
-              <li class="nav-item active"><%= link_to "Artist", artists_path, class:"nav-link" %></li>
-              <% if user_signed_in? %>
-                <li class="nav-item active"><%= link_to "Mypage", user_path(current_user), class:"nav-link" %></li>
-                <li class="nav-item active"><%= link_to "Logout", sign_out_path, class:"nav-link" %></li>
-                <span class="navbar-text">
-                  Logged in as <strong><%= current_user.name %></strong>
-                </span>
-              <% else %>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                  <li class="nav-item active"><%= link_to "SignIn", new_user_registration_path,  class:"nav-link" %></li>
-                  <li class="nav-item active"><%= link_to "Login", new_user_session_path, class:"nav-link" %></li>
-                </ul>
-              <% end %>
-          </div>
-      </nav>
-    </header>
+    <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #fff;">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <%= link_to "WhiteBox", root_path, class:"navbar-brand" %>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active"><%= link_to "Gallery", galleries_path, class:"nav-link" %></li>
+            <li class="nav-item active"><%= link_to "Artist", artists_path, class:"nav-link" %></li>
+            <% if user_signed_in? %>
+              <li class="nav-item active"><%= link_to "Mypage", user_path(current_user), class:"nav-link" %></li>
+              <li class="nav-item active"><%= link_to "Logout", sign_out_path, class:"nav-link" %></li>
+              <span class="navbar-text">Logged in as <strong><%= current_user.name %></strong></span>
+            <% else %>
+          </ul>
+              <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item active"><%= link_to "SignIn", new_user_registration_path,  class:"nav-link" %></li>
+                <li class="nav-item active"><%= link_to "Login", new_user_session_path, class:"nav-link" %></li>
+              </ul>
+            <% end %>
+      </div>
+    </nav>
     <div class="container-fluid">
       <% flash.each do |key, value| %>
          <div id="message_n_a"><%= content_tag(:div, value, class: "#{key}") %></div>
-       <% end %>
-    <div>
-      <div class="container">
-       <div class="col-md-10 offset-md-2">
-          <br>
-          <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
-          <%= yield %>
-        </div>
-      </div>
+      <% end %>
+      <br>
+      <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
+      <%= yield %>
+    </div>
   </body>
 </html>

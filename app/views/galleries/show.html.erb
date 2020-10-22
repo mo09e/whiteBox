@@ -54,8 +54,7 @@
     <% end %>
 
     <%= link_to "Favorite List", "/users/#{@gallery.user_id}/favorites", class: 'btn btn-orange-moon' %>
-
-    <% if @gallery.user_id == current_user.id %>
+    <% if user_signed_in? && @gallery.user_id == current_user.id %>
       <%= link_to 'Edit', edit_gallery_path(@gallery), class: 'btn btn-orange-moon'  %>
     <% end %>
   </div>
