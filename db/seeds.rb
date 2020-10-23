@@ -27,7 +27,7 @@ Label.create!([
   password = "01pass23"
   User.create!(
                name: name,
-               email: email,
+               email: email + "a",
                password: password,
                password_confirmation: password,
                avatar: File.open("./public/uploads/user/avatar/icon_avatar.png"),
@@ -57,7 +57,7 @@ end
   password = "01pass23"
   User.create!(
                name: name,
-               email: email,
+               email: email + "g",
                password: password,
                password_confirmation: password,
                avatar: "",

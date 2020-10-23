@@ -1,11 +1,26 @@
-<h1>Reservation</h1>
-<p><%= @reservation.title %></p>
-<p><%= @reservation.start_time %></p>
-<p><%= @reservation.end_time %></p>
-<p><%= @reservation.artist.name %></p>
-<p><%= @reservation.gallery.name %></p>
-
-<% if @gallery.id == @reservation.gallery_id && @gallery.user_id == current_user.id %>
-<%= link_to 'Edit', edit_gallery_reservation_path(@reservation) %> |
-<% end %>
-<%= link_to "back", gallery_path(@gallery) %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="post-preview">
+        <table class="artist_table" id="main_table">
+        <br><br>
+        <h1>Reservation</h1>
+        <p class="btn btn-orange-moon btn-rounded">Exhibition Title</p>
+        <p><%= @reservation.title %></p>
+        <p class="btn btn-orange-moon btn-rounded">Start</p>
+        <p><%= l @reservation.start_time, format: :day %></p>
+        <p class="btn btn-orange-moon btn-rounded">End</p>
+        <p><%= l @reservation.end_time, format: :day %></p>
+        <p class="btn btn-orange-moon btn-rounded">Artist</p>
+        <p><%= @reservation.artist.name %></p>
+        <p class="btn btn-orange-moon btn-rounded">Gallery</p>
+        <p><%= @reservation.gallery.name %></p>
+        <br><br>
+        <% if @gallery.id == @reservation.gallery_id && @gallery.user_id == current_user.id %>
+        <%= link_to 'Edit', edit_gallery_reservation_path(@reservation) %> |
+        <% end %>
+        <%= link_to "back", gallery_path(@gallery) %>
+      </div>
+    </div>
+  </div>
+</div>

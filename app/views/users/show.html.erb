@@ -1,10 +1,20 @@
-<h2>Mypage</h2>
+<br><br>
+<h1>
+  <span class="break-down">Ac</span>
+  <span>c</span>
+  ount
+  <span>i</span>
+  nfo
+  <span>r</span>
+  mation
+</h1>
+<br>
 <% if current_user.gallery_owner == true && current_user.gallery.present? %>
-  <%= link_to 'ギャラリー情報詳細ページへ', gallery_path(current_user.gallery.id) %> |
+  <%= link_to t('view.gallery_information'), gallery_path(current_user.gallery.id) %> |
 <% elsif current_user.gallery_owner == false && current_user.artist.present? %>
-  <%= link_to '作家情報詳細ページへ', artist_path(current_user.artist.id) %> |
+  <%= link_to t('view.artist_information'), artist_path(current_user.artist.id) %> |
 <% else %>
-  <%= link_to '情報登録をしてください', home_path(current_user.id) %> |
+  <%= link_to t('view.msg.please_register_your_information'), home_path(current_user.id) %> |
 <% end %>
 <%= link_to 'Edit Profile', edit_user_registration_path %> |
-<%= link_to "favorites", "/users/#{@user.id}/favorites", class: 'btn btn-danger' %>
+<%= link_to "favorite List", "/users/#{@user.id}/favorites" %>

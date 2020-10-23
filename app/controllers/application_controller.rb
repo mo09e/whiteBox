@@ -6,5 +6,4 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:admin, :gallery_owner, :name, :avatar])
     devise_parameter_sanitizer.permit(:account_update, keys: [:admin, :gallery_owner, :name, :avatar, :remove_avatar])
   end
-
 end

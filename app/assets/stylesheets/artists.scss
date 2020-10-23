@@ -1,3 +1,72 @@
 // Place all the styles related to the artists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//*---- ボタン関係 ----*//
+.btn-dark-moon {
+  background: #141E30;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #fff;
+  border: 3px solid #eee;
+}
+
+.btn-rounded {
+    border-radius: 35px;
+}
+
+.btn-dark-blue {
+    background: #7474BF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #348AC7, #7474BF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #348AC7, #7474BF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;
+    border: 3px solid #eee;
+}
+
+.btn-orange-moon {
+    background: #fc4a1a;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #f7b733, #fc4a1a);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #f7b733, #fc4a1a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;
+    border: 3px solid #eee;
+}
+
+#location {
+  width: 500px;
+  white-space: pre-wrap;
+  padding-left: 20px;
+}
+
+//*---- テーブル関係 ----*//
+table, th, td {
+  border-style: none !important;
+  padding-left: 5px;
+}
+
+.g-table {
+  width: 100%;
+}
+
+.a_head, .g_head {
+  color: #696969;
+  height: 25px;
+  text-align: center;
+}
+
+.g-avatar, .g-name, .g-rental_fee,
+.g-lending_period, .g-location {
+  text-align: center;
+}
+
+// 画像関係
+#m-images {
+  width: 300px;
+}
+
+#l-images {
+  width: 400px;
+}
+
+#avatar-images {
+  width: 100px;
+}

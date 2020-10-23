@@ -1,7 +1,7 @@
 <%= form_with(model: @gallery, local: true) do |form| %>
   <% if @gallery.errors.any? %>
     <div id="error_explanation">
-      <h2><%= @gallery.errors.count %>件のエラーがあります。</h2>
+      <h2><%= @gallery.errors.count %><%= t('activerecord.errors.messages.count_of_errors') %></h2>
       <ul>
       <% @gallery.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -10,55 +10,78 @@
     </div>
   <% end %>
   <div class="form-group">
-    <%= form.label :name, "作家名" %>
-    <%= form.text_field :name %>
+    <%= form.label :name, t('view.gallery_name'), class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-7">
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
   </div>
   <div class="form-group">
-    <%= form.label :phone_number %>
-    <%= form.text_field :phone_number %>
+    <%= form.label :phone_number, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-7">
+      <%= form.text_field :phone_number, class: "form-control" %>
+    </div>
   </div>
   <div class="form-group">
-    <%= form.label :address %>
-    <%= form.text_field :address %>
+    <%= form.label :address, class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-7">
+      <%= form.text_field :address, class: "form-control" %>
+    </div>
   </div>
   <div class="form-group">
-    <%= form.label :label, "地区" %>
-    <%= form.collection_check_boxes(:label_ids, Label.all, :id, :name) %>
+    <%= form.label :label, t('view.location'), class: "col-sm-2 col-form-label" %>
+    <span class="btn btn-dark-moon btn-rounded btn-sm"><%= t('view.msg.please_select_the_appropriate_area') %></span>
+    <div class="form-inline" id="location">
+      <%= form.collection_check_boxes(:label_ids, Label.all, :id, :name)%>
+    </div>
   </div>
   <div class="form-group">
-    <%= form.label :url %>
-    <%= form.text_field :url %>
+    <%= form.label :url, t('view.url'), class: "col-sm-2 col-form-label"  %>
+    <div class="col-sm-7">
+      <%= form.text_field :url, class: "form-control" %>
+    </div>
   </div>
   <div class="form-group">
-    <%= form.label :rental_fee, '利用料金' %>
-    <%= form.select :rental_fee, Gallery.rental_fees_i18n.invert %>
+    <%= form.label :rental_fee, t('view.rental_fee'), class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-7">
+      <%= form.select :rental_fee, Gallery.rental_fees_i18n.invert %>
+    </div>
   </div>
   <div class="form-group">
-    <%= form.label :lending_period, '貸し出し期間' %>
-    <%= form.select :lending_period, Gallery.lending_periods_i18n.invert %>
+    <%= form.label :lending_period, t('view.lending_period'), class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-7">
+      <%= form.select :lending_period, Gallery.lending_periods_i18n.invert %>
+    </div>
   </div>
   <div class="form-group">
-    <%= form.label :note %>
-    <%= form.text_field :note %>
+    <%= form.label :note, t('view.note'), class: "col-sm-2 col-form-label" %>
+    <div class="input-group col-sm-7">
+       <%= form.text_field :note, class: "form-control", rows: 5, id: "comment" %>
+    </div>
   </div>
   <div class="form-group">
-    <%= form.label :layout, '間取り図' %>
-    <%= form.file_field :layout %>
-    <% if action_name == "edit" %>
-      <%= image_tag @gallery.layout.url, size: "100x100" %>
-    <% end %>
-    <%= form.hidden_field :layout_cache %>
+    <%= form.label :layout, t('view.layout'), class: "col-sm-2 col-form-label" %>
+    <div class="col-sm-7">
+      <%= form.file_field :layout, class:"input-file", type: "file" %>
+      <% if action_name == "edit" %>
+        <%= image_tag @gallery.layout.url, size: "100x100" %>
+      <% end %>
+      <%= form.hidden_field :layout_cache %>
+    </div>
   </div>
   <div class="form-group">
-    <%= form.label :images %>
-    <% @gallery.images.each do |image| %>
-      <%= hidden_field :gallery, :images, multiple: true, value: image.identifier %>
-      <%= image_tag image.url, size: "100x100" %>
-    <% end %>
-    <%= form.file_field :images, multiple: true %>
-    <%= form.hidden_field :images_cache %>
+    <%= form.label :images, t('view.image_g'), class: "col-sm-2 col-form-label" %>
+      <div class="col-sm-7">
+        <% @gallery.images.each do |image| %>
+          <%= hidden_field :gallery, :images, multiple: true, value: image.identifier %>
+          <%= image_tag image.url, size: "100x100" %>
+        <% end %>
+        <%= form.file_field :images, multiple: true, class:"input-file", type: "file" %>
+        <%= form.hidden_field :images_cache %>
+      </div>
   </div>
   <div class="form-group">
-    <%= form.submit "create" %>
+    <div class="col-sm-7">
+      <%= form.submit t('view.register'), class:"btn btn-dark-moon btn-rounded btn-lg btn-block" %>
+    </div>
   </div>
 <% end %>

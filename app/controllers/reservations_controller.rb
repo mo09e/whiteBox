@@ -1,6 +1,7 @@
 class ReservationsController < ApplicationController
   before_action :set_reservation, only: [:show, :edit, :update, :destroy]
   before_action :set_applicable_gallies, only: [:new, :show, :create, :edit]
+  before_action :authenticate_user!, only: [:show, :new, :edit, :update, :destroy]
 
   def index
   end
