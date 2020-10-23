@@ -35,11 +35,11 @@
   <tbody>
     <% @galleries.each do |gallery| %>
     <tr>
-      <td class="g-avatar"><%= image_tag gallery.user.avatar.url, size: "100x100" %></td>
-      <td class="g-name"><%= link_to gallery.name, gallery_path(gallery) %></td>
-      <td class="g-rental_fee"><%= gallery.rental_fee_i18n %></td>
-      <td class="g-lending_period"><%= gallery.lending_period_i18n %></td>
-      <td class="g-location">
+      <td class="g_avatar"><%= image_tag gallery.user.avatar.url, size: "100x100" %></td>
+      <td class="g_name"><%= link_to gallery.name, gallery_path(gallery) %></td>
+      <td class="g_rental_fee"><%= gallery.rental_fee_i18n %></td>
+      <td class="g_lending_period"><%= gallery.lending_period_i18n %></td>
+      <td class="g_location">
         <% gallery.label.each do |label| %>
         <p class="btn btn-outline-danger btn-sm"><%= label.name %></p>
         <% end %>

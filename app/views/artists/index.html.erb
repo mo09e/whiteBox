@@ -16,29 +16,29 @@
   <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
       <div class="post-preview">
-      <table class="artist_table" id="main_table">
-        <thead>
-          <tr>
-            <th class="a_head">avatar</th>
-            <th class="a_head">name</th>
-            <th class="a_head">image</th>
-            <th colspan="3" class="t_head"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @artists.each do |artist| %>
-          <tr>
-            <td><%= image_tag artist.user.avatar.url, size: "100x100" %></td>
-            <td><%= link_to "#{artist.name}", artist_path(artist) %></td>
-            <td>
-              <% artist.images.each do |image| %>
-                <%= image_tag image.url, size: "100x100" %>
-              <% end %>
-            </td>
-          </tr>
-          <% end %>
-        </tbody>
-      </table>
+        <table class="artist_table" id="main_table">
+          <thead>
+            <tr>
+              <th class="a_head">avatar</th>
+              <th class="a_head">name</th>
+              <th class="a_head">image</th>
+              <th colspan="3" class="t_head"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @artists.each do |artist| %>
+            <tr>
+              <td><%= image_tag artist.user.avatar.url, size: "100x100" %></td>
+              <td><%= link_to "#{artist.name}", artist_path(artist) %></td>
+              <td>
+                <% artist.images.each do |image| %>
+                  <%= image_tag image.url, size: "100x100" %>
+                <% end %>
+              </td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
     </div>
   </div>
 </div>

@@ -1,32 +1,36 @@
 <br><br>
-<h1>DM</h1>
-<h4 class="btn btn-dark-moon btn-rounded btn-sm">Member</h4>
-<% @entries.each do |e| %>
-  <%= image_tag e.user.avatar.url, size: "50x50" %><%= e.user.name %>さん
-<% end %>
-
-<hr class="message_dm_hr">
-<% if @messages.present? %>
-  <% @messages.each do |m| %>
-    <% if current_user.id == m.user.id %>
-      <div class="message_dm_r"><p><%= m.content %></p></div>
-      <small><%= image_tag m.user.avatar.url, size: "50x50" %><%= m.user.name %>さん</small>
-    <% else %>
-      <small><%= image_tag m.user.avatar.url, size: "50x50" %><%= m.user.name %>さん</small>
-      <div class="message_dm_l""><p><%= m.content %></p></div>
-    <% end %>
-    <hr class="message_dm_hr">
-  <% end %>
-<% else %>
-  <h3 class="text-center">メッセージはまだありません</h3>
-<% end %>
-
-<div class="form-inline">
-    <%= form_for @message do |f| %>
-     <div class="form-group">
-      <%= f.text_field :content, placeholder: "メッセージを入力して下さい" , class:"form-control", size: 70 %>
-      <%= f.hidden_field :room_id, :value => @room.id %>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <h1>DM</h1>
+      <h4 class="btn btn-dark-moon btn-rounded btn-sm">Member</h4>
+      <% @entries.each do |e| %>
+        <%= image_tag e.user.avatar.url, size: "50x50" %><%= e.user.name %>さん
+      <% end %>
+      <hr class="message_dm_hr">
+      <% if @messages.present? %>
+        <% @messages.each do |m| %>
+          <% if current_user.id == m.user.id %>
+            <div class="message_dm_r"><p><%= m.content %></p></div>
+            <small><%= image_tag m.user.avatar.url, size: "50x50" %><%= m.user.name %>さん</small>
+          <% else %>
+            <small><%= image_tag m.user.avatar.url, size: "50x50" %><%= m.user.name %>さん</small>
+            <div class="message_dm_l""><p><%= m.content %></p></div>
+          <% end %>
+          <hr class="message_dm_hr">
+        <% end %>
+      <% else %>
+        <h3 class="text-center">メッセージはまだありません</h3>
+      <% end %>
+      <div class="form-inline">
+          <%= form_for @message do |f| %>
+           <div class="form-group">
+            <%= f.text_field :content, placeholder: "メッセージを入力して下さい" , class:"form-control", size: 70 %>
+            <%= f.hidden_field :room_id, :value => @room.id %>
+            </div>
+            <%= f.submit "Send", class: "btn btn-dark-moon btn-rounded btn-block" %>
+          <% end %>
       </div>
-      <%= f.submit "Send", class: "btn btn-dark-moon btn-rounded btn-block" %>
-    <% end %>
+    </div>
+  </div>
 </div>
