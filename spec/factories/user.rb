@@ -17,6 +17,24 @@ FactoryBot.define do
     gallery_owner { true }
     admin { false }
   end
+  factory :gallery_second_user, class: User do
+    name { 'g-test2' }
+    email { 'g-test2@ex.com' }
+    password { 'password' }
+    password_confirmation { 'password' }
+    avatar { 'app/assets/images/fallback/default_avatar.png' }
+    gallery_owner { true }
+    admin { false }
+  end
+  factory :gallery_third_user, class: User do
+    name { 'g-test3' }
+    email { 'g-test3@ex.com' }
+    password { 'password' }
+    password_confirmation { 'password' }
+    avatar { 'app/assets/images/fallback/default_avatar.png' }
+    gallery_owner { true }
+    admin { false }
+  end
   factory :admin_user, class: User do
     name { 'admin' }
     email { 'admin@ex.com' }
@@ -44,8 +62,32 @@ FactoryBot.define do
     lending_period { 1 }
     url { 'http://testtest.test.com' }
     layout { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/image_default.png')) }
-    images { ['app/assets/images/gallery-w.jpg'] }
+    images { [] }
     note { 'Life is but a walking shadow.' }
     user_id { User.find_by(gallery_owner: true).id }
+  end
+  factory :gallery_user_second_info, class: Gallery do
+    name { 'julius' }
+    phone_number { '0123456789' }
+    address { '東京都江東区' }
+    rental_fee { 3 }
+    lending_period { 3 }
+    url { 'http://testtest.test.com' }
+    layout { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/image_default.png')) }
+    images { [] }
+    note { 'And you, Brutus' }
+    user_id { User.find_by(name: "g-test2").id }
+  end
+  factory :gallery_user_third_info, class: Gallery do
+    name { 'King Lear' }
+    phone_number { '0123456789' }
+    address { '東京都八王子市' }
+    rental_fee { 0 }
+    lending_period { 2 }
+    url { 'http://testtest.test.com' }
+    layout { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/image_default.png')) }
+    images { [] }
+    note { 'The worst is not, So long as we can say, This is the worst.' }
+    user_id { User.find_by(name: "g-test3").id }
   end
 end

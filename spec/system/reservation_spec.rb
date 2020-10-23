@@ -24,6 +24,7 @@ RSpec.describe 'カレンダー機能', type: :system do
         select '2020', from: :reservation_end_time_1i
         select '11', from: :reservation_end_time_2i
         select '3', from: :reservation_end_time_3i
+        sleep 0.2
         click_on '登録する'
         expect(page).to have_content '予約を入れました'
         expect(page).to have_content 'The test'

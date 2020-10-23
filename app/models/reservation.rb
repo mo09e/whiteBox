@@ -1,7 +1,7 @@
 class Reservation < ApplicationRecord
   belongs_to :artist
   belongs_to :gallery, optional: true
-
+  validates :title, presence:true, length: { maximum: 30 }
   validates :start_time, presence: true
   validates :end_time, presence: true
   validate :date_before_start, :start_end_check
