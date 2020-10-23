@@ -12,12 +12,13 @@
   </div>
 </header>
 <br><br>
+<p><%= t('view.msg.click_on_the_name_to_learn_more') %></p>
 <div class="form-col">
   <%= search_form_for @q do |f| %>
-  <%= f.search_field :name_cont, class: "search", placeholder: 'Gallery Name' %>
-  <%= f.select :label_name_eq, options_from_collection_for_select(Label.all, :name, :name, "---") , include_blank: "地区" %>
-  <%= f.submit 'Search', class:"btn btn-dark-moon btn-rounded" %>
-  <%= link_to 'Reset', galleries_path, class: "btn btn-dark-blue btn-rounded" %>
+    <%= f.search_field :name_cont, class: "search", placeholder: 'Gallery Name' %>
+    <%= f.select :label_name_eq, options_from_collection_for_select(Label.all, :name, :name, "---") , include_blank: "地区" %>
+    <%= f.submit 'Search', class:"btn btn-dark-moon btn-rounded" %>
+    <%= link_to 'Reset', galleries_path, class: "btn btn-dark-blue btn-rounded" %>
   <% end %>
 </div>
 <br>

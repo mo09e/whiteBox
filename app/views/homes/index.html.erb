@@ -28,12 +28,14 @@
           <h2 class="post-title">
             About WhiteBox
           </h2>
-          <h6 class="post-subtitle">
+          <h7 class="post-subtitle">
             ハコ、ヒト、つながるをコンセプトにしたギャラリーと作家のマッチングサイトです。
-          </h6>
+          </h7>
       </div>
       <hr><br><br>
       <h1>Artist</h1>
+      <br>
+      <p><%= t('view.msg.click_on_the_name_to_learn_more') %></p>
       <table class="artist_row" id="main_table">
         <thead>
           <tr>
@@ -61,6 +63,8 @@
       <h4><%= link_to 'Artist List', artists_path, class: "btn btn-dark-moon btn-rounded btn-lg" %></h4>
       <br>
       <h1>Gallery</h1>
+      <br>
+      <p><%= t('view.msg.click_on_the_name_to_learn_more') %></p>
       <table class="gallery_row" id="main_table">
         <thead>
           <tr>
