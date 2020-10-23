@@ -71,8 +71,8 @@
             <%= link_to reservation.title, gallery_reservation_path(@gallery,reservation) %>
             <% if user_signed_in? %>
               <% if @gallery.id == reservation.gallery_id && @gallery.user_id == current_user.id %>
-                <%= link_to 'Edit', edit_gallery_reservation_path(@gallery,reservation) %>
-                <%= link_to 'Destroy', gallery_reservation_path(@gallery,reservation), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+                <%= link_to 'Edit', edit_gallery_reservation_path(@gallery,reservation), id: "r_edit" %>
+                <%= link_to 'Destroy', gallery_reservation_path(@gallery,reservation), method: :delete, data: { confirm: '本当に削除しますか？' }, id: "r_delete" %>
               <% end %>
             <% end %>
           </div>
