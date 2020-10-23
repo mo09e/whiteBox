@@ -1,45 +1,51 @@
 <br><br>
-<h1><span class="break-down">F</span>avo<span>ri</span>t<span>e </span>L<span>is</span>t</h1>
-<br><br>
-<div class="favorite">
-  <h4 class="btn btn-dark-moon btn-rounded">Artist:</h4>
-  <table class="artist_row" id="main_table">
-    <thead>
-      <tr>
-        <th class="t_head"></th>
-        <th class="t_head">name</th>
-        <th colspan="1" class="t_head"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @a_favorites.each do |favorite| %>
-      <tr>
-        <td><%= image_tag favorite.user.avatar.url, size: "80x80" %></td>
-        <td><%= favorite.artist.name %></td>
-        <td><%= link_to 'show', artist_path(favorite.artist_id) %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <br>
-  <h4 class="btn btn-dark-moon btn-rounded">Gallery:</h4>
-  <br>
-  <table class="artist_row" id="main_table">
-    <thead>
-      <tr>
-        <th class="t_head"></th>
-        <th class="t_head">name</th>
-        <th colspan="1" class="t_head"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @g_favorites.each do |favorite| %>
-      <tr>
-        <td><%= image_tag favorite.user.avatar.url, size: "80x80" %></td>
-        <td><%= favorite.gallery.name %></td>
-        <td><%= link_to 'show', gallery_path(favorite.gallery_id) %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <h1><span class="break-down">F</span>avo<span>ri</span>t<span>e </span>L<span>is</span>t</h1>
+      <br><br>
+      <div class="favorite">
+        <h4 class="btn btn-dark-moon btn-rounded">Artist:</h4>
+        <table class="artist_row" id="main_table">
+          <thead>
+            <tr>
+              <th class="t_head"></th>
+              <th class="t_head">name</th>
+              <th colspan="1" class="t_head"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @a_favorites.each do |favorite| %>
+            <tr>
+              <td><%= image_tag favorite.user.avatar.url, size: "80x80" %></td>
+              <td><%= favorite.artist.name %></td>
+              <td><%= link_to 'show', artist_path(favorite.artist_id) %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+        <br>
+        <h4 class="btn btn-dark-moon btn-rounded">Gallery:</h4>
+        <br>
+        <table class="artist_row" id="main_table">
+          <thead>
+            <tr>
+              <th class="t_head"></th>
+              <th class="t_head">name</th>
+              <th colspan="1" class="t_head"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @g_favorites.each do |favorite| %>
+            <tr>
+              <td><%= image_tag favorite.user.avatar.url, size: "80x80" %></td>
+              <td><%= favorite.gallery.name %></td>
+              <td><%= link_to 'show', gallery_path(favorite.gallery_id) %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>
