@@ -6,6 +6,7 @@ class GalleriesController < ApplicationController
     @q = Gallery.ransack(params[:q])
     @galleries = @q.result
     @galleries = @galleries.joins(:labels).where(labels: { id: params[:label_id] }) if params[:label_id].present?
+    @galleries = @galleries.page(params[:page]).per(10)
   end
 
   def new
@@ -74,7 +75,7 @@ class GalleriesController < ApplicationController
     @gallery.destroy
     redirect_to root_path, notice: "Deleted"
   end
-  
+
   private
   def gallery_params
     params.require(:gallery).permit(:name, :note, :phone_number, :url, :address, :rental_fee, :lending_period,
