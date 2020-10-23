@@ -7,6 +7,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    if params[:id] == "password"
+       redirect_to new_user_session_path
+    else
+      @user = User.find(params[:id])
+    end
   end
+  
 end

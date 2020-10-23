@@ -47,13 +47,14 @@ table, th, td {
   width: 100%;
 }
 
-.t_head {
-  color: #f5f5f5;
+.a_head, .g_head {
+  color: #696969;
   height: 25px;
+  text-align: center;
 }
 
-.g-avatar, .g-rental_fee,
-.g-lending_period {
+.g-avatar, .g-name, .g-rental_fee,
+.g-lending_period, .g-location {
   text-align: center;
 }
 
