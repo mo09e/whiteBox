@@ -188,8 +188,9 @@ header.masthead .post-heading .meta a {
 }
 
 // 画像
-.avatar {
+.file_up {
   margin-right: 10px;
+  background:linear-gradient(transparent 80%, #dcdcdc 0%);
 }
 
 .form_image{
@@ -240,7 +241,27 @@ header.masthead .post-heading .meta a {
   }
 }
 
+.cancel_account {
+  border: 1px solid rgba(245, 92, 35, 0.82);
+  background: transparent;
+  color: rgba(245, 92, 35, 0.82);
+  display: block;
+  margin: 1.2rem 0;
+  min-width: 500px;
+  padding: .15rem;
+  transition: 250ms background ease-in;
+  &:hover, &:focus {
+    background: rgba(245, 92, 35, 0.82);
+    color: white;
+    transition: 250ms background ease-in;
+  }
+}
+
 .gallery_owner_select {
   margin-left: 20px;
   display: inline-block;
+}
+
+.point_under {
+  background:linear-gradient(transparent 70%, #ffff66 0%);
 }

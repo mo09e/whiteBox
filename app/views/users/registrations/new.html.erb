@@ -19,8 +19,8 @@
 
         <div class="field">
           <%= f.label :avatar %><br/>
-          <%= f.label :avatar, class: 'avatar' do %>
-            <%= fa_icon("camera-retro 2x", text: "ファイルを選択してください") %>
+          <%= f.label :avatar, class: 'file_up' do %>
+            <%= fa_icon("camera-retro 2x", text: t('view.msg.select_file')) %>
             <%= f.file_field :avatar, class: "form_image" %>
           <% end %>
         </div>
@@ -41,7 +41,8 @@
         <div class="field">
           <%= f.label :gallery_owner %>
           <%= f.radio_button :gallery_owner, "yes", for: "true", class: "gallery_owner_select" %>yes<br />
-          <%= fa_icon("hand-o-right fa-lg", text: t('view.msg.if_you_do_not_check_this_box_you_will_be_registered_as_an_artist')) %><br />
+          <span class="point_under"><%= fa_icon("bell fa-lg", text: t('view.msg.if_you_do_not_check_this_box_you_will_be_registered_as_an_artist')) %></span>
+          <br />
         </div>
 
         <div class="actions">
