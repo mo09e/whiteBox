@@ -45,7 +45,7 @@
                 <% end %>
               <% end %>
               <%= link_to "Favorite List", "/users/#{@artist.user_id}/favorites", class: 'btn btn-danger', class:"btn btn-orange-moon" %>
-              <% if current_user == @artist.user_id %>
+              <% if current_user.id == @artist.user_id %>
                 <%= link_to 'edit', edit_artist_path(@artist), class:"btn btn-orange-moon" %>
               <% end %>
             <% end %>
