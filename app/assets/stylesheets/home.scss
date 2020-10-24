@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// *---- header ----* //
 header.masthead {
   margin-left: 0;
   margin-bottom: 50px;
@@ -99,5 +100,89 @@ header.masthead .post-heading .meta a {
   }
   header.masthead .post-heading .subheading {
     font-size: 30px;
+  }
+}
+
+// *--- login ----* //
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700);
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+.login_form input {
+  ::-webkit-input-placeholder {
+     color: rgba(205, 205, 204, 0.79);
+  }
+.login_form  ::-moz-placeholder {
+     color: rgba(205, 205, 204, 0.79);
+  }
+.login-form  :-ms-input-placeholder {
+     color: rgba(205, 205, 204, 0.79);
+  }
+  &:focus {
+    outline: 0 transparent solid;
+    ::-webkit-input-placeholder {
+     color: rgba(0,0,0,0.7);
+    }
+    ::-moz-placeholder {
+       color: rgba(0,0,0,0.7);
+    }
+    :-ms-input-placeholder {
+       color: rgba(0,0,0,0.7);
+    }
+  }
+}
+
+.login-form {
+  //background: #222;
+  //box-shadow: 0 0 1rem rgba(0,0,0,0.3);
+  min-height: 10rem;
+  margin: auto;
+  max-width: 70%;
+  padding: .5rem;
+}
+.login-text {
+  //background: hsl(40,30,60);
+  //border-bottom: .5rem solid white;
+  color: black;
+  font-size: 1.5rem;
+  margin: 0 auto;
+  max-width: 50%;
+  padding: .5rem;
+  text-align: center;
+  //text-shadow: 1px -1px 0 rgba(0,0,0,0.3);
+  .fa-stack-1x {
+    color: white;
+  }
+}
+
+.login-email, .login-password {
+  background: transparent;
+  border: 0 solid;
+  border-bottom: 1px dotted rgb(173, 173, 173);
+  color: rgba(94, 94, 93, 0.79);
+  display: block;
+  margin: 1rem;
+  padding: .5rem;
+  transition: 250ms background ease-in;
+  width: calc(100% - 3rem);
+  &:focus {
+    background: rgb(215, 215, 214);
+    color: black;
+    transition: 250ms background ease-in;
+  }
+}
+
+.login-submit {
+  border: 1px solid rgb(177, 177, 176);
+  background: transparent;
+  color: rgb(177, 177, 176);
+  display: block;
+  margin: 1rem auto;
+  min-width: 1px;
+  padding: .25rem;
+  transition: 250ms background ease-in;
+  &:hover, &:focus {
+    background: white;
+    color: black;
+    transition: 250ms background ease-in;
   }
 }
