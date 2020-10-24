@@ -15,7 +15,7 @@ ja:
     gallery_information: ギャラリー詳細情報へ
     artist_information: アーティスト詳細情報へ
     msg:
-      please_select_the_appropriate_area: 該当するエリアを選んでください
+      select_the_appropriate_area: 該当するエリアを選んでください
       if_you_do_not_check_this_box_you_will_be_registered_as_an_artist: こちらにチェックがない場合はアーティストとして登録されます。
       please_register_your_information: 情報を登録してください
       click_on_the_name_to_learn_more: お名前をクリックすると詳細をご覧いただけます
@@ -23,6 +23,8 @@ ja:
       delete_your_account: アカウントを削除しますか?
       leave_blank_if_you_do_not_want_to_change_it: 変更しない場合は空欄のままにしてください
       characters_minimum: 文字以上必要です
+      maximum_of_5_images: 登録可能最大数は5点です
+      need_one_layout: 間取りは1点必要です
   activerecord:
     errors:
       messages:

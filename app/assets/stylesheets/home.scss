@@ -235,8 +235,8 @@ header.masthead .post-heading .meta a {
   padding: .15rem;
   transition: 250ms background ease-in;
   &:hover, &:focus {
-    background: white;
-    color: black;
+    background: rgb(177, 177, 176);
+    color: white;
     transition: 250ms background ease-in;
   }
 }
