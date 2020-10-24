@@ -4,7 +4,7 @@ class ArtistsController < ApplicationController
 
   def index
     @artists = Artist.all
-    @artists = @artists.page(params[:page]).per(10)
+    @artists = @artists.page(params[:page]).per(7)
   end
 
   def new

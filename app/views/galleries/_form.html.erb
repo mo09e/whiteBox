@@ -31,23 +31,25 @@
     <%= form.label :label, t('view.location'), class: "col-sm-2 col-form-label" %>
     <span class="btn btn-dark-moon btn-rounded btn-sm"><%= t('view.msg.please_select_the_appropriate_area') %></span>
     <div class="form-inline" id="location">
-      <%= form.collection_check_boxes(:label_ids, Label.all, :id, :name)%>
+      <%= form.collection_check_boxes(:label_ids, Label.all, :id, :name) do |l| %>
+        <%= l.label { l.check_box + l.text } %>
+      <% end %>
     </div>
   </div>
   <div class="form-group">
-    <%= form.label :url, t('view.url'), class: "col-sm-2 col-form-label"  %>
+    <%= form.label :url, t('view.url'), class: "col-sm-3 col-form-label"  %>
     <div class="col-sm-7">
       <%= form.text_field :url, class: "form-control" %>
     </div>
   </div>
   <div class="form-group">
-    <%= form.label :rental_fee, t('view.rental_fee'), class: "col-sm-2 col-form-label" %>
+    <%= form.label :rental_fee, t('view.rental_fee'), class: "col-sm-3 col-form-label" %>
     <div class="col-sm-7">
       <%= form.select :rental_fee, Gallery.rental_fees_i18n.invert %>
     </div>
   </div>
   <div class="form-group">
-    <%= form.label :lending_period, t('view.lending_period'), class: "col-sm-2 col-form-label" %>
+    <%= form.label :lending_period, t('view.lending_period'), class: "col-sm-3 col-form-label" %>
     <div class="col-sm-7">
       <%= form.select :lending_period, Gallery.lending_periods_i18n.invert %>
     </div>
