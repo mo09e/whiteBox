@@ -3,7 +3,7 @@ class ArtistsController < ApplicationController
   before_action :current_user, only: [:edit, :destroy, :update, :new]
 
   def index
-    @artists = Artist.all
+    @artists = Artist.all.includes(:user)
     @artists = @artists.page(params[:page]).per(7)
   end
 

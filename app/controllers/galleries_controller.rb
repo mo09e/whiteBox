@@ -4,7 +4,7 @@ class GalleriesController < ApplicationController
 
   def index
     @q = Gallery.ransack(params[:q])
-    @galleries = @q.result
+    @galleries = @q.result.includes(:user, :label)
     @galleries = @galleries.joins(:labels).where(labels: { id: params[:label_id] }) if params[:label_id].present?
     @galleries = @galleries.order(created_at: :desc).page(params[:page]).per(7)
   end
