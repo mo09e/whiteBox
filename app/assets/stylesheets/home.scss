@@ -186,3 +186,61 @@ header.masthead .post-heading .meta a {
     transition: 250ms background ease-in;
   }
 }
+
+// 画像
+.avatar {
+  margin-right: 10px;
+}
+
+.form_image{
+            display: none;
+}
+
+// *--- sign up ----* //
+.sign_up_form_f {
+  //background: #222;
+  //box-shadow: 0 0 1rem rgba(0,0,0,0.3);
+  min-height: 10rem;
+  margin: auto;
+  max-width: 50%;
+  padding: .5rem;
+}
+
+.sign_up_form {
+  background: transparent;
+  border: 0 solid;
+  border-bottom: 1px dotted rgb(173, 173, 173);
+  color: rgba(94, 94, 93, 0.79);
+  display: block;
+  // margin: 1rem;
+  margin-bottom: 0.7rem;
+  padding: .5rem;
+  transition: 250ms background ease-in;
+  width: calc(100% - 3rem);
+  &:focus {
+    background: rgb(215, 215, 214);
+    color: black;
+    transition: 250ms background ease-in;
+  }
+}
+
+.sign_up_submit {
+  border: 1px solid rgb(177, 177, 176);
+  background: transparent;
+  color: rgb(177, 177, 176);
+  display: block;
+  margin: 1.2rem 0;
+  min-width: 500px;
+  padding: .15rem;
+  transition: 250ms background ease-in;
+  &:hover, &:focus {
+    background: white;
+    color: black;
+    transition: 250ms background ease-in;
+  }
+}
+
+.gallery_owner_select {
+  margin-left: 20px;
+  display: inline-block;
+}
