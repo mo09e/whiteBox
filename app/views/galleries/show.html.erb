@@ -73,11 +73,7 @@
             <tr scorp="col">
               <% @gallery.images.each do |image| %>
               <td scorp="row">
-                <% if image.empty? %>
-                  <%= image_tag ("/assets/image_default.png"), class: "img-fluid", id: "m-images" %>
-                <% else %>
-                  <%= image_tag image.url, class: "img-fluid", id: "m-images" %>
-                <% end %>
+                <%= image_tag image.url, class: "img-fluid", id: "m-images" %>
               </td>
               <% end %>
             </tr>
