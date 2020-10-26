@@ -14,6 +14,9 @@ ja:
     clear_sarch_content: 検索クリア
     gallery_information: ギャラリー詳細情報へ
     artist_information: アーティスト詳細情報へ
+    current_bookings: 現在のご予約状況
+    start_time: ご予約開始日
+    end_time: ご予約終了日
     msg:
       select_the_appropriate_area: 該当するエリアを選んでください
       if_you_do_not_check_this_box_you_will_be_registered_as_an_artist: こちらにチェックがない場合はアーティストとして登録されます。
@@ -26,6 +29,7 @@ ja:
       maximum_of_5_images: 登録可能最大数は5点です
       need_one_layout: 間取りは1点必要です
       leave_out_the_hyphen: ハイフン無しで入力してください
+      one_week_from_today: ご予約は本日より１週間後以降にご指定いただけます
       index:
         box_and_people: ハコ、ヒト、繋がるをコンセプトにしたギャラリーと作家のマッチングサイトです。
         this_app_allows_to_do: このアプリでできる３つのこと

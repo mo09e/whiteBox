@@ -20,10 +20,8 @@
             <%= f.hidden_field :avatar_cache %>
           <% end %>
           <br>
-          <%= f.label :avatar, class: 'file_up' do %>
-            <%= fa_icon("camera-retro 2x", text: t('view.msg.select_file')) %>
-            <%= f.file_field :avatar, class: "form_image" %>
-          <% end %>
+          <%= f.label :avatar %><br />
+          <%= f.file_field :avatar %>
         </div>
 
         <div class="field">

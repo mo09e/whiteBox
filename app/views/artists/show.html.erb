@@ -1,42 +1,41 @@
 <br><br>
 <div class="container">
   <div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
-      <h1><span class="break-down">A</span>r<span>ti</span>st <span>in</span>f<span>or</span>mation</h1>
-      <br>
-      <br>
-      <%= image_tag @artist.user.avatar.url, id: "avatar-images" %>
-      <p><strong>ArtistName:</strong><%= @artist.name %></p>
-      <% if user_signed_in? && current_user.id == @artist.user_id %>
-        <p><strong>Name</strong><%= @artist.user.name %></p>
-        <p><strong>Email:</strong><%= @artist.user.email %></p>
-        <p><strong>phone_number:</strong><%= @artist.phone_number %></p>
-      <% end %>
-      <p><strong>Web:</strong><%= link_to "#{@artist.url}", @artist.url %></p>
-      <p><strong>Note:</strong><%= @artist.note %></p>
-      <p><strong>image:</strong></p>
-        <% @artist.images.each do |image| %>
-          <%= image_tag image.url, class: "img-fluid", id: "m-images" %>
-        <% end %>
-        <br>
-        <br>
-        <div class='btn-toolbar'>
-          <div class="btn-group" role="group">
-            <% if user_signed_in? %>
-              <% if @artist.user_id == current_user.id %>
-                <%= link_to 'DM List', rooms_path(id: @artist.user_id), class: 'btn btn-orange-moon' %>
-              <% else %>
-                <% if @is_room == true %>
-                  <%= link_to "Send DM", room_path(@room_id), class: "btn btn-dark-moon" %>
+    <div class="col-md-8 offset-md-3">
+      <h1 class="show_logo"><span class="break-down">A</span>r<span>ti</span>st <span>in</span>f<span>or</span>mation</h1>
+      <br><br>
+      <div class="row" id="a_show_content">
+        <div class="col-md-3">
+          <%= image_tag @artist.user.avatar.url, id: "avatar-images", class: "img-fluid" %>
+        </div>
+        <div class="col-md-7">
+          <p><strong>ArtistName:</strong><%= @artist.name %></p>
+          <% if user_signed_in? && current_user.id == @artist.user_id %>
+            <p><strong>Name</strong><%= @artist.user.name %></p>
+            <p><strong>Email:</strong><%= @artist.user.email %></p>
+            <p><strong>phone_number:</strong><%= @artist.phone_number %></p>
+          <% end %>
+          <p><strong>Web:</strong><%= link_to "#{@artist.url}", @artist.url %></p>
+          <p><strong>Note:</strong><%= @artist.note %></p>
+          <br><br>
+          <div class='btn-toolbar'>
+            <div class="btn-group" role="group">
+              <% if user_signed_in? %>
+                <% if @artist.user_id == current_user.id %>
+                  <%= link_to 'DM List', rooms_path(id: @artist.user_id), class: 'btn btn-orange-moon' %>
                 <% else %>
-                  <%= form_for @room do |f| %>
-                    <%= fields_for @entry do |e| %>
-                      <%= e.hidden_field :user_id, value: @artist.user_id %>
+                  <% if @is_room == true %>
+                    <%= link_to "Send DM", room_path(@room_id), class: "btn btn-dark-moon" %>
+                  <% else %>
+                    <%= form_for @room do |f| %>
+                      <%= fields_for @entry do |e| %>
+                        <%= e.hidden_field :user_id, value: @artist.user_id %>
+                      <% end %>
+                      <%= f.submit "Send DM", class: "btn btn-dark-moon" %>
                     <% end %>
-                    <%= f.submit "Send DM", class: "btn btn-dark-moon" %>
                   <% end %>
-                <% end %>
               <% end %>
+
               <% unless @artist.user_id == current_user.id %>
                 <% if @favorite.present? %>
                   <%= link_to 'Unfavorite', artists_favorite_path(id: @favorite.id), method: :delete, class: "btn btn-dark-moon"  %>
@@ -45,12 +44,34 @@
                 <% end %>
               <% end %>
               <%= link_to "Favorite List", "/users/#{@artist.user_id}/favorites", class: 'btn btn-danger', class:"btn btn-orange-moon" %>
-              <% if current_user.id == @artist.user_id %>
-                <%= link_to 'edit', edit_artist_path(@artist), class:"btn btn-orange-moon" %>
+                <% if current_user.id == @artist.user_id %>
+                  <%= link_to 'edit', edit_artist_path(@artist), class:"btn btn-orange-moon" %>
               <% end %>
-            <% end %>
+          <% end %>
+            </div>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="row">
+      <div class="col-md-7 offset-md-3">
+        <% if user_signed_in? %>
+          <p><strong>image:</strong></p>
+          <div class="table-responsive" id="image-table">
+            <table class="table table-borderless">
+              <tr scorp="col">
+                <% @artist.images.each do |image| %>
+                  <td scorp="row">
+                    <%= image_tag image.url, class: "img-fluid", id: "m-images" %>
+                  </td>
+                <% end %>
+              </tr>
+            </table>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
   </div>
+</div>

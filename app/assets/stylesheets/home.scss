@@ -257,6 +257,21 @@ header.masthead .post-heading .meta a {
   }
 }
 
+.reservation_submit {
+  border: 1px solid rgb(177, 177, 176);
+  background: transparent;
+  color: rgb(177, 177, 176);
+  display: block;
+  margin: 1.2rem 0;
+  min-width: 400px;
+  padding: .15rem;
+  transition: 250ms background ease-in;
+  &:hover, &:focus {
+    background: rgb(177, 177, 176);
+    color: white;
+    transition: 250ms background ease-in;
+  }
+}
 .gallery_owner_select {
   margin-left: 20px;
   display: inline-block;
