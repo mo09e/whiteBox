@@ -4,7 +4,7 @@ class ArtistsController < ApplicationController
 
   def index
     @artists = Artist.all.includes(:user)
-    @artists = @artists.page(params[:page]).per(7)
+    @artists = @artists.order(created_at: :desc).page(params[:page]).per(7)
   end
 
   def new

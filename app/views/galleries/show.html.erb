@@ -1,69 +1,98 @@
 <br><br>
 <div class="container">
   <div class="row">
-    <div class="col-lg-8 col-md-10 mx-auto">
-      <h1><span class="break-down">G</span>a<span>lla</span>ry <span>in</span>f<span>or</span>mation</h1>
-      <%= image_tag @gallery.user.avatar.url, id: "avatar-images" %>
-      <p><strong>GalleryName:</strong><%= @gallery.name %></p>
-      <p><strong>Name</strong><%= @gallery.user.name %></p>
-      <p><strong>Email:</strong><%= @gallery.user.email %></p>
-      <p><strong>address:</strong><%= @gallery.address %></p>
-      <p><strong>phone_number:</strong><%= @gallery.phone_number %></p>
-      <p><strong>rental_fee:</strong><%= @gallery.rental_fee_i18n %></p>
-      <p><strong>lending_period:</strong><%= @gallery.lending_period_i18n %></p>
-      <p><strong>Web:</strong><%= link_to "#{@gallery.url}", @gallery.url %></p>
-      <p><strong>location:</strong>
-      <% @gallery.label.each do |label| %>
-        <p class="btn btn-outline-danger btn-sm"><%= label.name %></p>
-      <% end %>
-      <p><strong>Note:</strong><%= @gallery.note %></p>
-      <p><strong>Layout:</strong></p>
-      <div class="layout_i">
-      <p><%= image_tag @gallery.layout.url, class: "img-fluid", id: "l-images" %></p>
-      </div>
-      <p><strong>image:</strong></p>
-        <% @gallery.images.each do |image| %>
-          <%= image_tag image.url, class: "img-fluid", id: "m-images" %>
-        <% end %>
-      <br>
-      <br>
-      <div class='btn-toolbar'>
-        <div class="btn-group" role="group">
-          <% if user_signed_in? %>
-            <br>
-
-            <% if @gallery.user_id == current_user.id %>
-              <%= link_to 'DM List', rooms_path(id: @gallery.user_id), class: 'btn btn-orange-moon' %>
-            <% else %>
-              <% if @is_room == true %>
-                <%= link_to "Send DM", room_path(@room_id), class: "btn btn-dark-moon" %>
-              <% else %>
-                <%= form_for @room do |f| %>
-                  <%= fields_for @entry do |e| %>
-                    <%= e.hidden_field :user_id, value: @gallery.user_id %>
+    <div class="col-lg-8 offset-md-3">
+      <h1 class="show_logo"><span class="break-down">G</span>a<span>lla</span>ry <span>in</span>f<span>or</span>mation</h1>
+      <br><br>
+      <div class="row" id="a_show_content">
+        <div class="col-md-3">
+          <%= image_tag @gallery.user.avatar.url, id: "avatar-images", class: "img-fluid" %>
+        </div>
+        <div class="col-md-8">
+          <p><strong>GalleryName:</strong><%= @gallery.name %></p>
+          <p><strong>Name</strong><%= @gallery.user.name %></p>
+          <p><strong>Email:</strong><%= @gallery.user.email %></p>
+          <p><strong>address:</strong><%= @gallery.address %></p>
+          <p><strong>phone_number:</strong><%= @gallery.phone_number %></p>
+          <p><strong>rental_fee:</strong><%= @gallery.rental_fee_i18n %></p>
+          <p><strong>lending_period:</strong><%= @gallery.lending_period_i18n %></p>
+          <p><strong>Web:</strong><%= link_to "#{@gallery.url}", @gallery.url %></p>
+          <p><strong>location:</strong>
+          <% @gallery.label.each do |label| %>
+            <p class="btn btn-outline-danger btn-sm"><%= label.name %></p>
+          <% end %>
+          <p><strong>Note:</strong><%= @gallery.note %></p>
+          <p><strong>Layout:</strong></p>
+          <div class="layout_i"><p><%= image_tag @gallery.layout.url, class: "img-fluid", id: "l-images" %></p></div>
+          <br>
+          <div class='btn-toolbar'>
+            <div class="btn-group" role="group">
+              <% if user_signed_in? %>
+                <%= link_to 'Calender', "#re-t", class: 'btn btn-dark-moon' %>
+                <br>
+                <% if @gallery.user_id == current_user.id %>
+                  <%= link_to 'DM List', rooms_path(id: @gallery.user_id), class: 'btn btn-orange-moon' %>
+                <% else %>
+                  <% if @is_room == true %>
+                    <%= link_to "Send DM", room_path(@room_id), class: "btn btn-dark-moon" %>
+                  <% else %>
+                    <%= form_for @room do |f| %>
+                      <%= fields_for @entry do |e| %>
+                        <%= e.hidden_field :user_id, value: @gallery.user_id %>
+                      <% end %>
+                      <%= f.submit "Send DM", class:"btn btn-dark-moon" %>
+                    <% end %>
                   <% end %>
-                  <%= f.submit "Send DM", class:"btn btn-dark-moon" %>
+                <% end %>
+
+                <% unless @gallery.user_id == current_user.id %>
+                  <% if @favorite.present? %>
+                    <%= link_to 'Unfavorite', galleries_favorite_path(id: @favorite.id), method: :delete, class: "btn btn-dark-moon" %>
+                  <% else %>
+                    <%= link_to 'Favorite', galleries_favorites_path(gallery_id: @gallery.id), method: :post, class: "btn btn-dark-blue" %>
+                  <% end %>
                 <% end %>
               <% end %>
-            <% end %>
 
-            <% unless @gallery.user_id == current_user.id %>
-              <% if @favorite.present? %>
-                <%= link_to 'Unfavorite', galleries_favorite_path(id: @favorite.id), method: :delete, class: "btn btn-dark-moon" %>
-              <% else %>
-                <%= link_to 'Favorite', galleries_favorites_path(gallery_id: @gallery.id), method: :post, class: "btn btn-dark-blue" %>
-              <% end %>
+            <%= link_to "Favorite List", "/users/#{@gallery.user_id}/favorites", class: 'btn btn-orange-moon' %>
+            <% if user_signed_in? && @gallery.user_id == current_user.id %>
+              <%= link_to 'Edit', edit_gallery_path(@gallery), class: 'btn btn-orange-moon'  %>
             <% end %>
-          <% end %>
-
-          <%= link_to "Favorite List", "/users/#{@gallery.user_id}/favorites", class: 'btn btn-orange-moon' %>
-          <% if user_signed_in? && @gallery.user_id == current_user.id %>
-            <%= link_to 'Edit', edit_gallery_path(@gallery), class: 'btn btn-orange-moon'  %>
-          <% end %>
+            </div>
+          </div>
         </div>
       </div>
-      <br>
+    </div>
 
+    <div class="row">
+      <div class="col-md-7 offset-md-3">
+        <% if user_signed_in? %>
+        <p><strong>image:</strong></p>
+        <div class="table-responsive" id="image-table">
+          <table class="table table-borderless">
+            <tr scorp="col">
+              <% @gallery.images.each do |image| %>
+              <td scorp="row">
+                <% if image.empty? %>
+                  <%= image_tag ("/assets/image_default.png"), class: "img-fluid", id: "m-images" %>
+                <% else %>
+                  <%= image_tag image.url, class: "img-fluid", id: "m-images" %>
+                <% end %>
+              </td>
+              <% end %>
+            </tr>
+          </table>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 offset-md-2">
+      <h4 id="re-t"><%= fa_icon("calendar fa-lg", text: t('view.current_bookings')) %></h4>
       <%= month_calendar events: @reservation do |date, reservations| %>
         <%= date.day %>
         <% reservations.each do |reservation| %>
@@ -85,5 +114,4 @@
     </div>
   </div>
 </div>
-<br>
-<br>
+<br><br>

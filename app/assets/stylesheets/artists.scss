@@ -61,12 +61,23 @@ table, th, td {
 // 画像関係
 #m-images {
   width: 300px;
+  display: flex;
+	flex-wrap: nowrap;
+}
+
+#image-table {
+  height: 500px;
 }
 
 #l-images {
-  width: 400px;
+  width: 300px;
 }
 
-#avatar-images {
-  width: 100px;
+// *---- Artist/Gallery show ----*//
+#a_show_content {
+  padding-top: 2em;
+}
+
+.show_logo {
+  padding-left: 30px;
 }
