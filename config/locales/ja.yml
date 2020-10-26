@@ -25,6 +25,13 @@ ja:
       characters_minimum: 文字以上必要です
       maximum_of_5_images: 登録可能最大数は5点です
       need_one_layout: 間取りは1点必要です
+      leave_out_the_hyphen: ハイフン無しで入力してください
+      index:
+        box_and_people: ハコ、ヒト、繋がるをコンセプトにしたギャラリーと作家のマッチングサイトです。
+        this_app_allows_to_do: このアプリでできる３つのこと
+        you_register_as_user: ユーザー登録をすると、作家、ギャラリー所有者それぞれで情報を登録できます。
+        make_reservation: 作家の方はギャラリーに予約を行えます。ギャラリー所有者の方は予約を編集することができます。
+        can_exchange_messages: ユーザー同士のメッセージのやりとりができます
   activerecord:
     errors:
       messages:

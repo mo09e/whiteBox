@@ -15,7 +15,7 @@
   </div>
   <div class="form-group">
     <%= form.label :phone_number %>
-    <%= form.text_field :phone_number, class: "sign_up_form" %>
+    <%= form.text_field :phone_number, class: "sign_up_form", placeholder: t('view.leave_out_the_hyphen') %>
   </div>
   <div class="form-group">
     <%= form.label :address, class: "col-sm-2 col-form-label" %>
@@ -48,10 +48,7 @@
   </div>
   <div class="form-group">
     <%= form.label :layout, t('view.layout') %>
-    <%= form.label :layout, class: 'file_up' do %>
-      <%= fa_icon("camera-retro 2x", text: t('view.msg.select_file')) %>
-      <%= form.file_field :layout, class: "form_image", type: "file" %>
-    <% end %>
+    <%= form.file_field :layout, type: "file" %>
     <% if action_name == "edit" %>
       <%= image_tag @gallery.layout.url, size: "100x100" %>
     <% end %>
@@ -60,10 +57,8 @@
   </div>
   <div class="form-group">
     <%= form.label :images, t('view.image_g') %>
-    <%= form.label :images, class: 'file_up' do %>
-      <%= fa_icon("camera-retro 2x", text: t('view.msg.select_file')) %>
-      <%= form.file_field :images, multiple: true, class: "form_image" %>
-    <% end %>
+    <%= form.file_field :images, multiple: true %>
+    <br>
     <% @gallery.images.each do |image| %>
       <%= hidden_field :gallery, :images, multiple: true, value: image.identifier %>
       <%= image_tag image.url, size: "100x100" %>

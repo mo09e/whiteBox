@@ -15,7 +15,7 @@
   </div>
   <div class="form-group">
     <%= form.label :phone_number %>
-    <%= form.text_field :phone_number, class: "sign_up_form" %>
+    <%= form.text_field :phone_number, class: "sign_up_form", placeholder: t('view.msg.leave_out_the_hyphen')  %>
   </div>
   <div class="form-group">
     <%= form.label :url %>
@@ -29,15 +29,13 @@
   </div>
   <div class="form-group">
     <%= form.label :images %>
-    <%= form.label :images, class: 'file_up' do %>
-      <%= fa_icon("camera-retro 2x", text: t('view.msg.select_file')) %>
-      <%= form.file_field :images, multiple: true, class: "form_image" %>
-    <% end %><br>
+    <%= form.file_field :images, multiple: true %><br>
     <% @artist.images.each do |image| %>
       <%= hidden_field :artist, :images, multiple: true, value: image.identifier %>
       <%= image_tag image.url, size: "100x100" %>
     <% end %>
-    <%= form.hidden_field :images_cache %>
+    <%= form.hidden_field :images_cache %><br>
+    <span class="point_under"><%= fa_icon("folder-open fa-lg", text: t('view.msg.maximum_of_5_images')) %></span>
   </div>
   <div class="form-group">
     <%= form.submit t('view.register'), class: "sign_up_submit" %>
