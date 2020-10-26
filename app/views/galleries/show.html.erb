@@ -27,8 +27,8 @@
           <br>
           <div class='btn-toolbar'>
             <div class="btn-group" role="group">
+              <%= link_to 'Calender', "#re-t", class: 'btn btn-dark-moon' %>
               <% if user_signed_in? %>
-                <%= link_to 'Calender', "#re-t", class: 'btn btn-dark-moon' %>
                 <br>
                 <% if @gallery.user_id == current_user.id %>
                   <%= link_to 'DM List', rooms_path(id: @gallery.user_id), class: 'btn btn-orange-moon' %>
@@ -64,22 +64,22 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-7 offset-md-3">
-        <% if user_signed_in? %>
-        <p><strong>image:</strong></p>
-        <div class="table-responsive" id="image-table">
-          <table class="table table-borderless">
-            <tr scorp="col">
-              <% @gallery.images.each do |image| %>
-              <td scorp="row">
-                <%= image_tag image.url, class: "img-fluid", id: "m-images" %>
-              </td>
-              <% end %>
-            </tr>
-          </table>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7 offset-md-3">
+          <p><strong>image:</strong></p>
+          <div class="table-responsive" id="image-table">
+            <table class="table table-borderless">
+              <tr scorp="col">
+                <% @gallery.images.each do |image| %>
+                <td scorp="row">
+                  <%= image_tag image.url, class: "img-fluid", id: "m-images" %>
+                </td>
+                <% end %>
+              </tr>
+            </table>
+          </div>
         </div>
-        <% end %>
       </div>
     </div>
   </div>
