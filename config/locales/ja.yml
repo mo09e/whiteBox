@@ -3,7 +3,7 @@ ja:
     gallery_name: ギャラリー名
     register: 登録
     make_a_reservation: 予約する
-    rental_fee: レンタル料金
+    rental_fee: レンタル料
     lending_period: 貸出期間単位
     note: 概要
     location: 地区
@@ -18,6 +18,7 @@ ja:
       please_select_the_appropriate_area: 該当するエリアを選んでください
       if_you_do_not_check_this_box_you_will_be_registered_as_an_artist: こちらにチェックがない場合はアーティストとして登録されます。
       please_register_your_information: 情報を登録してください
+      click_on_the_name_to_learn_more: 名前をクリックすると詳細をご覧いただけます
   activerecord:
     errors:
       messages:
@@ -235,5 +236,5 @@ ja:
       default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
-      day: "%m/%d" 
+      day: "%m/%d"
     pm: 午後
