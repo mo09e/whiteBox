@@ -10,43 +10,32 @@
     </div>
   <% end %>
   <div class="form-group">
-    <%= form.label :name, 'ArtistName', class: "col-sm-2 col-form-label" %>
-    <div class="col-sm-5">
-      <%= form.text_field :name, class: "form-control" %>
-    </div>
+    <%= form.label :name, 'ArtistName' %>
+    <%= form.text_field :name, class: "sign_up_form" %>
   </div>
   <div class="form-group">
-    <%= form.label :phone_number, class: "col-sm-2 col-form-label" %>
-    <div class="col-sm-5">
-      <%= form.text_field :phone_number, class: "form-control" %>
-    </div>
+    <%= form.label :phone_number %>
+    <%= form.text_field :phone_number, class: "sign_up_form", placeholder: t('view.msg.leave_out_the_hyphen')  %>
   </div>
   <div class="form-group">
-    <%= form.label :url, class: "col-sm-2 col-form-label"  %>
-    <div class="col-sm-5">
-      <%= form.text_field :url, class: "form-control" %>
-    </div>
+    <%= form.label :url %>
+    <%= form.text_field :url, class: "sign_up_form" %>
   </div>
   <div class="form-group">
-    <%= form.label :note, t('view.note'), class: "col-sm-2 col-form-label" %>
-    <div class="input-group col-sm-5">
-       <%= form.text_field :note, class: "form-control", rows: 5, id: "artist_note" %>
-    </div>
+    <%= form.label :note, t('view.note') %>
+    <%= form.text_field :note, class: "sign_up_form", id: "artist_note" %>
   </div>
   <div class="form-group">
-    <p><%= form.label :images, class: "col-sm-2 col-form-label"  %></p>
-    <div class="col-sm-5">
-      <% @artist.images.each do |image| %>
-        <%= hidden_field :artist, :images, multiple: true, value: image.identifier %>
-        <%= image_tag image.url, size: "100x100" %>
-      <% end %>
-      <%= form.file_field :images, multiple: true, class:"input-file", type: "file" %>
-      <%= form.hidden_field :images_cache %>
-    </div>
+    <%= form.label :images %>
+    <%= form.file_field :images, multiple: true %><br>
+    <% @artist.images.each do |image| %>
+      <%= hidden_field :artist, :images, multiple: true, value: image.identifier %>
+      <%= image_tag image.url, size: "100x100" %>
+    <% end %>
+    <%= form.hidden_field :images_cache %><br>
+    <span class="point_under"><%= fa_icon("folder-open fa-lg", text: t('view.msg.maximum_of_5_images')) %></span>
   </div>
   <div class="form-group">
-    <div class="col-sm-5">
-      <%= form.submit t('view.register'), class:"btn btn-dark-moon btn-rounded btn-lg btn-block" %>
-    </div>
+    <%= form.submit t('view.register'), class: "sign_up_submit" %>
   </div>
 <% end %>

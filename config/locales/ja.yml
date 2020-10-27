@@ -14,11 +14,35 @@ ja:
     clear_sarch_content: 検索クリア
     gallery_information: ギャラリー詳細情報へ
     artist_information: アーティスト詳細情報へ
+    current_bookings: 現在のご予約状況
+    start_time: ご予約開始日
+    end_time: ご予約終了日
+    period_use: 利用期間
+    gallery_info_registar: ギャラリー情報を登録する
+    artist_info_registar: 作家情報を登録する
     msg:
-      please_select_the_appropriate_area: 該当するエリアを選んでください
+      select_the_appropriate_area: 該当するエリアを選んでください
       if_you_do_not_check_this_box_you_will_be_registered_as_an_artist: こちらにチェックがない場合はアーティストとして登録されます。
       please_register_your_information: 情報を登録してください
-      click_on_the_name_to_learn_more: 名前をクリックすると詳細をご覧いただけます
+      click_on_the_name_to_learn_more: お名前をクリックすると詳細をご覧いただけます
+      select_file: ファイルを選択してください
+      delete_your_account: アカウントを削除しますか?
+      leave_blank_if_you_do_not_want_to_change_it: 変更しない場合は空欄のままにしてください
+      characters_minimum: 文字以上必要です
+      maximum_of_5_images: 登録可能最大数は5点です
+      need_one_layout: 間取りは1点必要です
+      leave_out_the_hyphen: ハイフン無しで入力してください
+      one_week_from_today: ご予約は本日より１週間後以降にご指定いただけます
+      your_information_next: お次に情報をご登録ください
+      can_not_register_artist_information: あなたはギャラリー所有者なので作家情報は登録できません
+      can_not_register_gallery_information: あなたは作家なのでギャラリー情報は登録できません
+      index:
+        box_and_people: ハコ、ヒト、繋がるをコンセプトにしたギャラリーと作家のマッチングサイトです。
+        this_app_allows_to_do: このアプリでできる３つのこと
+        you_register_as_user: ユーザー登録をすると、作家、ギャラリー所有者それぞれで情報を登録できます。
+        make_reservation: 作家の方はギャラリーに予約を行えます。ギャラリー所有者の方は予約を編集することができます。
+        can_exchange_messages: ユーザー同士のメッセージのやりとりができます
+        place_for_you: 展示場所をお探しの方、展示をする作家をお探しの方ぜひご利用ください
   activerecord:
     errors:
       messages:

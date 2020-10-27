@@ -33,7 +33,7 @@
 
 #location {
   width: 500px;
-  white-space: pre-wrap;
+  word-break: keep-all;
   padding-left: 20px;
 }
 
@@ -60,13 +60,40 @@ table, th, td {
 
 // 画像関係
 #m-images {
-  width: 300px;
+  width: 500px;
+  display: flex;
+	flex-wrap: nowrap;
+}
+
+#image-table {
+  height: 500px;
 }
 
 #l-images {
-  width: 400px;
+  width: 300px;
 }
 
-#avatar-images {
-  width: 100px;
+// *---- Artist/Gallery show ----*//
+#a_show_content {
+  padding-top: 2em;
+}
+
+.show_logo {
+  padding-left: 30px;
+}
+
+// *---- reservation ----* //
+.reservation_p {
+  position: relative;
+}
+
+.reservation_p:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 20%;
+  height: 3px;
+  background: -webkit-repeating-linear-gradient(-45deg, #6ad1c8, #6ad1c8 2px, #fff 2px, #fff 4px);
+  background: repeating-linear-gradient(-45deg, #6ad1c8, #6ad1c8 2px, #fff 2px, #fff 4px);
 }

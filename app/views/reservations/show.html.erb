@@ -5,15 +5,14 @@
         <table class="artist_table" id="main_table">
         <br><br>
         <h1>Reservation</h1>
-        <p class="btn btn-orange-moon btn-rounded">Exhibition Title</p>
+        <br>
+        <p class="reservation_p"><%= fa_icon("television fa-lg", text: "Exhibition Title") %></p>
         <p><%= @reservation.title %></p>
-        <p class="btn btn-orange-moon btn-rounded">Start</p>
-        <p><%= l @reservation.start_time, format: :day %></p>
-        <p class="btn btn-orange-moon btn-rounded">End</p>
-        <p><%= l @reservation.end_time, format: :day %></p>
-        <p class="btn btn-orange-moon btn-rounded">Artist</p>
+        <p class="reservation_p"><%= fa_icon("calendar fa-lg", text: t('view.period_use')) %></p>
+        <p><%= l @reservation.start_time, format: :day %>　- <%= l @reservation.end_time, format: :day %></p>
+        <p class="reservation_p"><%= fa_icon("user fa-lg", text: "Artist") %></p>
         <p><%= @reservation.artist.name %></p>
-        <p class="btn btn-orange-moon btn-rounded">Gallery</p>
+        <p class="reservation_p"><%= fa_icon("university fa-lg", text: "Artist") %></p>
         <p><%= @reservation.gallery.name %></p>
         <br><br>
         <% if @gallery.id == @reservation.gallery_id && @gallery.user_id == current_user.id %>

@@ -9,24 +9,26 @@
       </ul>
     </div>
   <% end %>
-  <div class="time">
+  <div class="title">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class: "sign_up_form" %>
   </div>
 
   <div class="time">
-    <%= form.label :start_time %>
+    <%= form.label :start_time,t('view.start_time') %>
     <%= form.date_select :start_time %>
   </div>
 
   <div class="content">
-    <%= form.label :end_time %>
+    <%= form.label :end_time, t('view.end_time') %>
     <%= form.date_select:end_time %>
   </div>
 
+  <span class="point_under"><%= fa_icon("bell fa-lg", text: t('view.msg.one_week_from_today')) %></span>
+
 
   <div class="submit">
-    <%= form.submit %>
+    <%= form.submit t('view.register'), class: "reservation_submit" %>
   </div>
 
 <% end %>

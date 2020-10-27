@@ -24,7 +24,7 @@ class Gallery < ApplicationRecord
   validate :check_image_limit
 
   def check_image_limit
-    if images.count > 5
+    if images.count > 6
       errors.add(:images, "画像投稿数は最大５個です。")
     end
   end
