@@ -81,3 +81,19 @@ table, th, td {
 .show_logo {
   padding-left: 30px;
 }
+
+// *---- reservation ----* //
+.reservation_p {
+  position: relative;
+}
+
+.reservation_p:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 20%;
+  height: 3px;
+  background: -webkit-repeating-linear-gradient(-45deg, #6ad1c8, #6ad1c8 2px, #fff 2px, #fff 4px);
+  background: repeating-linear-gradient(-45deg, #6ad1c8, #6ad1c8 2px, #fff 2px, #fff 4px);
+}

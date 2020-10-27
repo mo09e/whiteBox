@@ -20,7 +20,7 @@ class ReservationsController < ApplicationController
        render :new
     else
       if @reservation.save
-        redirect_to gallery_path(@gallery), notice: "予約を入れました"
+        redirect_to gallery_path(@gallery), notice: t('activerecord.attributes.reservation.create')
       else
         render :new
       end
@@ -29,7 +29,7 @@ class ReservationsController < ApplicationController
 
   def destroy
     @reservation.destroy
-    redirect_to galleries_path(current_user.id), notice:"削除しました"
+    redirect_to galleries_path(current_user.id), notice: t('activerecord.attributes.reservation.destroy')
   end
 
   def edit
@@ -38,7 +38,7 @@ class ReservationsController < ApplicationController
 
   def update
     if @reservation.update(reservation_parameter)
-      redirect_to galleries_path, notice: "編集しました"
+      redirect_to galleries_path, notice: t('activerecord.attributes.reservation.edit')
     else
        render :edit
     end

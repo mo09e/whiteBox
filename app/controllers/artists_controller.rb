@@ -10,7 +10,7 @@ class ArtistsController < ApplicationController
   def new
     if current_user.gallery_owner == true
       redirect_to galleries_path,
-      notice: "あなたはギャラリー所有者なので作家情報は登録できません"
+      notice: t('view.msg.can_not_register_artist_information')
     end
     if params[:back]
       @artist = Artist.new(artist_params)
@@ -25,7 +25,7 @@ class ArtistsController < ApplicationController
       render :new
     else
       if @artist.save
-        redirect_to artists_path, notice: "作家情報を登録しました"
+        redirect_to artists_path, notice: t('activerecord.attributes.artist.create')
       else
         render :new
       end
@@ -61,7 +61,7 @@ class ArtistsController < ApplicationController
 
   def update
     if @artist.update(artist_params)
-      redirect_to artist_path(@artist), notice: "編集しました"
+      redirect_to artist_path(@artist), notice: t('activerecord.attributes.artist.edit')
     else
       render :edit
     end

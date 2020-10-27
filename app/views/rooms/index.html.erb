@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-lg-8 col-md-10 mx-auto">
       <% if @user.id == current_user.id %>
-       <p class: "btn btn-dark-moon btn-rounded btn-block">DM List</p>
+       <h1>DM List</h1><br><br>
         <% @another_entries.each do |e| %>
           <%= link_to room_path(e.room.id) do %>
             <%= image_tag e.user.avatar.url, size: "50x50" %><%= e.user.name %>さんとのDM<br>
