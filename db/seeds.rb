@@ -30,7 +30,7 @@ Label.create!([
                email: email + "a",
                password: password,
                password_confirmation: password,
-               avatar: File.open("./public/uploads/user/avatar/icon_avatar.png"),
+               avatar: File.open("./app/assets/images/a-seedi.jpg"),
                admin: false,
                gallery_owner: false
                )
@@ -42,9 +42,9 @@ users.each do |user|
      name: name,
      phone_number: "0123456789",
      url: "",
-     images: [open("#{Rails.root}/public/uploads/artist/images/icon_a.png"),
-              open("#{Rails.root}/public/uploads/artist/images/icon_b.png"),
-              open("#{Rails.root}/public/uploads/artist/images/icon_c.png")],
+     images: [open("./app/assets/images/a-seed-m1.jpg"),
+              open("./app/assets/images/a-seed-m2.jpg"),
+              open("./app/assets/images/a-seed-m3.jpg")],
      note: "test#ArtistUser",
      user_id: user.id)
 end
@@ -60,7 +60,7 @@ end
                email: email + "g",
                password: password,
                password_confirmation: password,
-               avatar: "",
+               avatar: File.open("./app/assets/images/g-seedi.jpg"),
                admin: false,
                gallery_owner: true
                )
@@ -75,10 +75,9 @@ users.each do |user|
      rental_fee: 2,
      lending_period: 2,
      url: "",
-     images: [open("#{Rails.root}/public/uploads/gallery/images/icona.png"),
-              open("#{Rails.root}/public/uploads/gallery/images/iconb.png"),
-              open("#{Rails.root}/public/uploads/gallery/images/iconc.png")],
-     layout: File.open("./public/uploads/gallery/layout/madori_ab.png"),
+     images: [open("./app/assets/images/g-seed-m1.jpg"),
+              open("./app/assets/images/g-seed-m2.jpg")],
+     layout: File.open("./app/assets/images/madori_seed.png"),
      note: "test#Gallery",
      user_id: user.id)
 end
