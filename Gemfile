@@ -38,7 +38,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'dotenv-rails'
 gem 'unicorn'
 gem 'mini_racer', platforms: :ruby
-gem 'fog-aws'
+gem 'fog'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
