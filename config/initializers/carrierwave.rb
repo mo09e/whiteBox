@@ -2,7 +2,7 @@ CarrierWave.configure do |config|
   require 'carrierwave/storage/abstract'
   require 'carrierwave/storage/file'
   require 'carrierwave/storage/fog'
-  config.storage :fog
+  # config.storage :fog
   config.fog_provider = 'fog/aws'
   config.fog_credentials = {
       provider:              'AWS',
@@ -11,6 +11,7 @@ CarrierWave.configure do |config|
       region:                'ap-northeast-1',
       path_style:            true,
   }
+  config.storage :fog
   config.fog_public     = true
   config.fog_attributes = {'Cache-Control' => 'public, max-age=86400'}
   case Rails.env
