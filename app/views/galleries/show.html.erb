@@ -1,7 +1,7 @@
-<br><br>
 <div class="container">
   <div class="row">
     <div class="col-lg-8 offset-md-3">
+      <br><br>
       <h1 class="show_logo"><span class="break-down">G</span>a<span>lla</span>ry <span>in</span>f<span>or</span>mation</h1>
       <br><br>
       <div class="row" id="a_show_content">
@@ -16,7 +16,7 @@
           <strong class="show-m">phone_number:</strong><p><%= @gallery.phone_number %></p>
           <strong class="show-m">rental_fee:</strong><p><%= @gallery.rental_fee_i18n %></p>
           <strong class="show-m">lending_period:</strong><p><%= @gallery.lending_period_i18n %></p>
-          <strong class="show-m">Web:</strong><%= link_to "#{@gallery.url}", @gallery.url %></p>
+          <strong class="show-m">Web:</strong><p><%= link_to "#{@gallery.url}", @gallery.url %></p>
           <strong class="show-m">location:</strong><br>
           <% @gallery.label.each do |label| %>
             <p class="btn btn-outline-danger btn-sm"><%= label.name %></p>
@@ -24,7 +24,7 @@
           <br>
           <strong class="show-m">Note:</strong><p><%= @gallery.note %></p>
           <strong class="show-m">Layout:</strong>
-          <div class="layout_i"><p><%= image_tag @gallery.layout.url, class: "img-fluid", id: "l-images" %></p></div>
+          <div class="layout_i"><%= image_tag @gallery.layout.url, class: "img-fluid", id: "l-images" %></div>
           <br>
           <div class='btn-toolbar'>
             <div class="btn-group" role="group">
@@ -64,7 +64,7 @@
         </div>
       </div>
     </div>
-  
+
     <div class="container">
       <div class="row">
         <div class="col-md-7 offset-md-3">
@@ -81,7 +81,6 @@
             </table>
           </div>
         </div>
-        <% end %>
       </div>
     </div>
   </div>
