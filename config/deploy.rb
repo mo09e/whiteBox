@@ -6,7 +6,7 @@ set :application, 'whitebox'
 # （xxxxxxxx：ユーザ名、yyyyyyyy：アプリケーション名）
 set :repo_url, 'https://github.com/mo09e/whiteBox'
 # deployするブランチ。デフォルトはmasterなのでなくても可。
-set :branch, ENV['BRANCH'] || 'develop#29'
+set :branch, ENV['BRANCH'] || 'master'
 # deploy先のディレクトリ。
 set :deploy_to, '/var/www/whitebox'
 # シンボリックリンクをはるフォルダ・ファイル
