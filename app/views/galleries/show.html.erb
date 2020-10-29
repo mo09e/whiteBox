@@ -9,26 +9,27 @@
           <%= image_tag @gallery.user.avatar.url, id: "avatar-images", class: "img-fluid" %>
         </div>
         <div class="col-md-8">
-          <p><strong>GalleryName:</strong><%= @gallery.name %></p>
-          <p><strong>Name</strong><%= @gallery.user.name %></p>
-          <p><strong>Email:</strong><%= @gallery.user.email %></p>
-          <p><strong>address:</strong><%= @gallery.address %></p>
-          <p><strong>phone_number:</strong><%= @gallery.phone_number %></p>
-          <p><strong>rental_fee:</strong><%= @gallery.rental_fee_i18n %></p>
-          <p><strong>lending_period:</strong><%= @gallery.lending_period_i18n %></p>
-          <p><strong>Web:</strong><%= link_to "#{@gallery.url}", @gallery.url %></p>
-          <p><strong>location:</strong>
+          <strong class="show-m">GalleryName:</strong><p><%= @gallery.name %></p>
+          <strong class="show-m">Name</strong><p><%= @gallery.user.name %></p>
+          <strong class="show-m">Email:</strong><p><%= @gallery.user.email %></p>
+          <strong class="show-m">address:</strong><p><%= @gallery.address %></p>
+          <strong class="show-m">phone_number:</strong><p><%= @gallery.phone_number %></p>
+          <strong class="show-m">rental_fee:</strong><p><%= @gallery.rental_fee_i18n %></p>
+          <strong class="show-m">lending_period:</strong><p><%= @gallery.lending_period_i18n %></p>
+          <strong class="show-m">Web:</strong><%= link_to "#{@gallery.url}", @gallery.url %></p>
+          <strong class="show-m">location:</strong><br>
           <% @gallery.label.each do |label| %>
             <p class="btn btn-outline-danger btn-sm"><%= label.name %></p>
           <% end %>
-          <p><strong>Note:</strong><%= @gallery.note %></p>
-          <p><strong>Layout:</strong></p>
+          <br>
+          <strong class="show-m">Note:</strong><p><%= @gallery.note %></p>
+          <strong class="show-m">Layout:</strong>
           <div class="layout_i"><p><%= image_tag @gallery.layout.url, class: "img-fluid", id: "l-images" %></p></div>
           <br>
           <div class='btn-toolbar'>
             <div class="btn-group" role="group">
+              <%= link_to 'Calender', "#re-t", class: 'btn btn-dark-moon' %>
               <% if user_signed_in? %>
-                <%= link_to 'Calender', "#re-t", class: 'btn btn-dark-moon' %>
                 <br>
                 <% if @gallery.user_id == current_user.id %>
                   <%= link_to 'DM List', rooms_path(id: @gallery.user_id), class: 'btn btn-orange-moon' %>
@@ -63,21 +64,22 @@
         </div>
       </div>
     </div>
-
-    <div class="row">
-      <div class="col-md-7 offset-md-3">
-        <% if user_signed_in? %>
-        <p><strong>image:</strong></p>
-        <div class="table-responsive" id="image-table">
-          <table class="table table-borderless">
-            <tr scorp="col">
-              <% @gallery.images.each do |image| %>
-              <td scorp="row">
-                <%= image_tag image.url, class: "img-fluid", id: "m-images" %>
-              </td>
-              <% end %>
-            </tr>
-          </table>
+  
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7 offset-md-3">
+          <p><strong>image:</strong></p>
+          <div class="table-responsive" id="image-table">
+            <table class="table table-borderless">
+              <tr scorp="col">
+                <% @gallery.images.each do |image| %>
+                <td scorp="row">
+                  <%= image_tag image.url, class: "img-fluid", id: "m-images" %>
+                </td>
+                <% end %>
+              </tr>
+            </table>
+          </div>
         </div>
         <% end %>
       </div>

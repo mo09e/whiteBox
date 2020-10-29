@@ -8,11 +8,11 @@
       <%= @user.name %>
       <%= @user.email %>
       <br>
-      <p>お次に情報をご登録ください</p>
+      <p><%= fa_icon("diamond fa-lg", text: t('view.msg.your_information_next')) %></p>
       <% if @user.gallery_owner == true %>
-       <%= link_to 'ギャラリー情報を登録する', new_gallery_path %>
+       <%= link_to t('view.gallery_info_registar'), new_gallery_path, class: "registar_submit" %>
       <% else %>
-       <%= link_to '作家情報を登録する', new_artist_path %>
+       <%= link_to t('view.artist_info_registar'), new_artist_path, class: "registar_submit" %>
       <% end %>
     </div>
   </div>

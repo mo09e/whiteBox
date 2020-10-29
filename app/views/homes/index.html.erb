@@ -1,4 +1,4 @@
-<header class="masthead" style="background-image: url('/assets/back_image.jpg')">
+<header class="masthead" id="ho-h">
   <div class="overlay"></div>
   <div class="container">
     <div class="row">
@@ -30,6 +30,7 @@
           </h2>
           <h6 class="post-subtitle">
             <%= t('view.msg.index.box_and_people') %>
+            <%= t('view.msg.index.place_for_you') %>
           </h6>
           <br>
           <h4><%= fa_icon("diamond fa-lg", text: t('view.msg.index.this_app_allows_to_do')) %></h4>
@@ -92,7 +93,7 @@
             <td><%= gallery.lending_period_i18n %></td>
             <td>
               <% gallery.label.each do |label| %>
-              <p  class="label label-info"><%= label.name %></p>
+              <p class="btn btn-outline-danger btn-sm"><%= label.name %></p>
               <% end %>
             </td>
           </tr>

@@ -17,6 +17,8 @@ ja:
         url: WEBサイト
         images: 作品
         note: 概要
+        create: 作家情報を登録しました
+        edit: 作家情報を編集しました
       gallery:
         name: ギャラリー名
         phone_number: 電話番号
@@ -26,3 +28,9 @@ ja:
         url: WEBサイト
         images: 景観
         layout: 間取り
+        create: ギャラリー情報を登録しました
+        edit: ギャラリー情報を登録しました
+      reservation:
+        create: 予約を入れました
+        edit: 編集しました
+        destroy: 削除しました

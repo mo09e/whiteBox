@@ -103,6 +103,19 @@ header.masthead .post-heading .meta a {
   }
 }
 
+#ar-h {
+  background-image: image-url('artist-w.jpg');
+}
+
+#ho-h {
+  background-image: image-url('back_image.jpg');
+}
+
+
+#ga-h {
+  background-image: image-url('gallery-w.jpg');
+}
+
 // *--- login ----* //
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:100,300,400,700);
 @import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
@@ -272,6 +285,23 @@ header.masthead .post-heading .meta a {
     transition: 250ms background ease-in;
   }
 }
+
+.registar_submit {
+  border: 1px solid rgb(200, 135, 143);
+  background: transparent;
+  color: rgb(200, 135, 143);
+  display: block;
+  margin: 1.2rem 0;
+  min-width: 400px;
+  padding: .15rem;
+  transition: 250ms background ease-in;
+  &:hover, &:focus {
+    background: rgb(200, 135, 143);
+    color: white;
+    transition: 250ms background ease-in;
+  }
+}
+
 .gallery_owner_select {
   margin-left: 20px;
   display: inline-block;

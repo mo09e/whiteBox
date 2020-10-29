@@ -9,14 +9,14 @@
           <%= image_tag @artist.user.avatar.url, id: "avatar-images", class: "img-fluid" %>
         </div>
         <div class="col-md-7">
-          <p><strong>ArtistName:</strong><%= @artist.name %></p>
+          <strong class="show-m">ArtistName:</strong><p><%= @artist.name %></p>
           <% if user_signed_in? && current_user.id == @artist.user_id %>
-            <p><strong>Name</strong><%= @artist.user.name %></p>
-            <p><strong>Email:</strong><%= @artist.user.email %></p>
-            <p><strong>phone_number:</strong><%= @artist.phone_number %></p>
+            <strong class="show-m">Name</strong><p><%= @artist.user.name %></p>
+            <strong class="show-m">Email:</strong><p><%= @artist.user.email %></p>
+            <strong class="show-m">phone_number:</strong><p><%= @artist.phone_number %></p>
           <% end %>
-          <p><strong>Web:</strong><%= link_to "#{@artist.url}", @artist.url %></p>
-          <p><strong>Note:</strong><%= @artist.note %></p>
+          <strong class="show-m">Web:</strong><p><%= link_to "#{@artist.url}", @artist.url %></p>
+          <strong class="show-m">Note:</strong><p><%= @artist.note %></p>
           <br><br>
           <div class='btn-toolbar'>
             <div class="btn-group" role="group">
@@ -43,11 +43,14 @@
                   <%= link_to 'Favorite', artists_favorites_path(artist_id: @artist.id), method: :post, class: "btn btn-dark-blue"  %>
                 <% end %>
               <% end %>
+
+              <% end %>
               <%= link_to "Favorite List", "/users/#{@artist.user_id}/favorites", class: 'btn btn-danger', class:"btn btn-orange-moon" %>
+              <% if user_signed_in? %>
                 <% if current_user.id == @artist.user_id %>
                   <%= link_to 'edit', edit_artist_path(@artist), class:"btn btn-orange-moon" %>
+                <% end %>
               <% end %>
-          <% end %>
             </div>
           </div>
         </div>
@@ -56,20 +59,18 @@
 
     <div class="row">
       <div class="col-md-7 offset-md-3">
-        <% if user_signed_in? %>
-          <p><strong>image:</strong></p>
-          <div class="table-responsive" id="image-table">
-            <table class="table table-borderless">
-              <tr scorp="col">
-                <% @artist.images.each do |image| %>
-                  <td scorp="row">
-                    <%= image_tag image.url, class: "img-fluid", id: "m-images" %>
-                  </td>
-                <% end %>
-              </tr>
-            </table>
-          </div>
-        <% end %>
+        <p><strong>image:</strong></p>
+        <div class="table-responsive" id="image-table">
+          <table class="table table-borderless">
+            <tr scorp="col">
+              <% @artist.images.each do |image| %>
+              <td scorp="row">
+                <%= image_tag image.url, class: "img-fluid", id: "m-images" %>
+              </td>
+              <% end %>
+            </tr>
+          </table>
+        </div>
       </div>
     </div>
 
