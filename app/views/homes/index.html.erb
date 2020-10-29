@@ -1,4 +1,4 @@
-<header class="masthead" style="background-image: url('/assets/back_image.jpg')">
+<header class="masthead" id="ho-h">
   <div class="overlay"></div>
   <div class="container">
     <div class="row">
@@ -93,7 +93,7 @@
             <td><%= gallery.lending_period_i18n %></td>
             <td>
               <% gallery.label.each do |label| %>
-              <p  class="label label-info"><%= label.name %></p>
+              <p class="btn btn-outline-danger btn-sm"><%= label.name %></p>
               <% end %>
             </td>
           </tr>

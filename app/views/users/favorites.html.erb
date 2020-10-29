@@ -17,7 +17,7 @@
           <tbody>
             <% @a_favorites.each do |favorite| %>
             <tr>
-              <td><%= image_tag favorite.user.avatar.url, size: "80x80" %></td>
+              <td><%= image_tag favorite.artist.user.avatar.url, size: "80x80" %></td>
               <td><%= favorite.artist.name %></td>
               <td><%= link_to 'show', artist_path(favorite.artist_id) %></td>
             </tr>
@@ -38,7 +38,7 @@
           <tbody>
             <% @g_favorites.each do |favorite| %>
             <tr>
-              <td><%= image_tag favorite.user.avatar.url, size: "80x80" %></td>
+              <td><%= image_tag favorite.gallery.user.avatar.url, size: "80x80" %></td>
               <td><%= favorite.gallery.name %></td>
               <td><%= link_to 'show', gallery_path(favorite.gallery_id) %></td>
             </tr>
